@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import UploadZone from './UploadZone';
 import AdBanner from './AdBanner';
@@ -22,6 +22,59 @@ export default function ToolPage({
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
   const location = useLocation();
+
+  const marketplaceName = marketplace
+    ? marketplace.charAt(0).toUpperCase() + marketplace.slice(1)
+    : 'shipping';
+
+  const jsonLd = useMemo(() => {
+    const path = canonicalPath || location.pathname;
+    const url = `https://labelsnap.vercel.app${path}`;
+    return {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'SoftwareApplication',
+          name: metaTitle || `${title} | LabelSnap`,
+          applicationCategory: 'BusinessApplication',
+          operatingSystem: 'Web browser',
+          url,
+          description: metaDescription || description,
+          offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+        },
+        {
+          '@type': 'HowTo',
+          name: `How to crop ${marketplaceName} shipping labels`,
+          step: [
+            { '@type': 'HowToStep', position: 1, name: 'Download the label PDF', text: `Download your ${marketplaceName} shipping label PDF from the seller dashboard.` },
+            { '@type': 'HowToStep', position: 2, name: 'Upload the PDF', text: 'Upload the PDF file to LabelSnap. Processing happens in your browser.' },
+            { '@type': 'HowToStep', position: 3, name: 'Choose a format', text: 'Select 4x6 thermal for label printers or A4 sheet for sticker paper.' },
+            { '@type': 'HowToStep', position: 4, name: 'Download cropped labels', text: 'Download the cropped, print-ready PDF.' },
+          ],
+        },
+        {
+          '@type': 'FAQPage',
+          mainEntity: [
+            {
+              '@type': 'Question',
+              name: `Is the ${marketplaceName} label cropper free?`,
+              acceptedAnswer: { '@type': 'Answer', text: `Yes. LabelSnap's ${marketplaceName} label cropper is completely free with no sign-up and no limits.` },
+            },
+            {
+              '@type': 'Question',
+              name: 'Are my shipping labels uploaded to a server?',
+              acceptedAnswer: { '@type': 'Answer', text: 'No. All cropping happens entirely inside your web browser, so your labels and customer data never leave your device.' },
+            },
+            {
+              '@type': 'Question',
+              name: 'Can I print on both 4x6 thermal printers and A4 sheets?',
+              acceptedAnswer: { '@type': 'Answer', text: 'Yes. You can export cropped labels as 4x6 PDFs for thermal printers or arrange multiple labels on an A4 sticker sheet.' },
+            },
+          ],
+        },
+      ],
+    };
+  }, [title, metaTitle, metaDescription, description, canonicalPath, location.pathname, marketplaceName]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -56,6 +109,7 @@ export default function ToolPage({
         title={metaTitle || `${title} | LabelSnap`}
         description={metaDescription || description}
         canonicalPath={canonicalPath || location.pathname}
+        jsonLd={jsonLd}
       />
 
       <div className="tool-header text-center">

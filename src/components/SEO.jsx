@@ -9,10 +9,12 @@ export default function SEO({
   description = DEFAULT_DESCRIPTION,
   canonicalPath = '/',
   type = 'website',
+  jsonLd = null,
 }) {
   useEffect(() => {
     const origin = getSiteOrigin();
     const canonicalUrl = new URL(canonicalPath, origin).toString();
+    const imageUrl = new URL('/og-image.png', origin).toString();
 
     document.title = title;
     setMeta('description', description);
@@ -21,11 +23,25 @@ export default function SEO({
     setMeta('og:description', description, 'property');
     setMeta('og:type', type, 'property');
     setMeta('og:url', canonicalUrl, 'property');
+    setMeta('og:image', imageUrl, 'property');
     setMeta('twitter:card', 'summary_large_image');
     setMeta('twitter:title', title);
     setMeta('twitter:description', description);
+    setMeta('twitter:image', imageUrl);
     setCanonical(canonicalUrl);
   }, [canonicalPath, description, title, type]);
+
+  useEffect(() => {
+    if (!jsonLd) return undefined;
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.setAttribute('data-seo-jsonld', 'true');
+    script.textContent = JSON.stringify(jsonLd);
+    document.head.appendChild(script);
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, [jsonLd]);
 
   return null;
 }

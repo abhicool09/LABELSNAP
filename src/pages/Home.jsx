@@ -3,6 +3,33 @@ import { Link } from 'react-router-dom';
 import AdBanner from '../components/AdBanner';
 import SEO from '../components/SEO';
 
+const HOME_JSONLD = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      name: 'LabelSnap',
+      url: 'https://labelsnap.vercel.app/',
+      description:
+        'Free shipping label crop tool for Flipkart, Meesho and Amazon sellers in India.',
+    },
+    {
+      '@type': 'Organization',
+      name: 'LabelSnap',
+      url: 'https://labelsnap.vercel.app/',
+      logo: 'https://labelsnap.vercel.app/favicon.svg',
+    },
+    {
+      '@type': 'WebApplication',
+      name: 'LabelSnap Shipping Label Cropper',
+      applicationCategory: 'BusinessApplication',
+      operatingSystem: 'Web browser',
+      url: 'https://labelsnap.vercel.app/',
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+    },
+  ],
+};
+
 export default function Home() {
   return (
     <div className="home-page">
@@ -10,6 +37,7 @@ export default function Home() {
         title="Free Shipping Label Cropper for Amazon, Flipkart and Meesho"
         description="Crop Amazon, Flipkart and Meesho shipping label PDFs for 4x6 thermal printers or A4 sheets. Free, private and browser based."
         canonicalPath="/"
+        jsonLd={HOME_JSONLD}
       />
 
       <section className="hero text-center py-16">
