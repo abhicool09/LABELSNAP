@@ -2,9 +2,41 @@ import React, { useEffect, useMemo, useState } from 'react';
 import QRCode from 'qrcode';
 import { jsPDF } from 'jspdf';
 import SEO from '../components/SEO';
+import ToolSeoSection from '../components/ToolSeoSection';
+import { buildToolSchema } from '../lib/seo-schema';
 import { downloadBlob } from '../lib/label-tools';
 
 const TYPES = ['URL', 'UPI', 'Wi-Fi', 'WhatsApp', 'Phone', 'Email', 'Text'];
+
+const QR_STEPS = [
+  { name: 'Pick a QR type', text: 'Choose URL, UPI, Wi-Fi, WhatsApp, phone, email or plain text.' },
+  { name: 'Enter your content', text: 'Type the link, UPI ID or details you want the QR code to open.' },
+  { name: 'Style and size it', text: 'Set the colours and resolution (up to 1024px) to match your brand.' },
+  { name: 'Download', text: 'Export a PNG, scalable SVG or print-ready PDF — all generated in your browser.' },
+];
+
+const QR_FAQS = [
+  { q: 'Are these QR codes free and permanent?', a: 'Yes. LabelSnap generates static QR codes that never expire and have no scan limits or fees. The data is encoded directly in the code, so there is no redirect that can break.' },
+  { q: 'Can I create a UPI payment QR code?', a: 'Yes. Select the UPI type, enter your UPI ID and payee name, and the tool builds a standard upi:// QR that any UPI app like GPay, PhonePe or Paytm can scan to pay you.' },
+  { q: 'Is my data uploaded anywhere?', a: 'No. The QR code is rendered entirely inside your browser using JavaScript. Nothing you type is sent to a server.' },
+  { q: 'What resolution should I use for printing?', a: 'For printed labels and packaging, download the SVG (infinitely scalable) or use the 1024px PNG. Higher resolution keeps the code crisp and scannable at any size.' },
+];
+
+const QR_RELATED = [
+  { to: '/barcode-generator', label: 'Barcode generator' },
+  { to: '/product-label-maker', label: 'Product label maker' },
+  { to: '/thank-you-sticker-maker', label: 'Thank-you sticker maker' },
+  { to: '/blog/free-qr-code-generator-guide', label: 'Guide: QR codes for sellers' },
+];
+
+const QR_JSONLD = buildToolSchema({
+  name: 'Free QR Code Generator',
+  path: '/qr-code-generator',
+  description: 'Create permanent, static QR codes for URLs, UPI, Wi-Fi, WhatsApp, phone, email and text — free and private.',
+  howToName: 'How to create a QR code',
+  steps: QR_STEPS,
+  faqs: QR_FAQS,
+});
 
 function payloadFor(type, value, extra) {
   if (type === 'UPI') return `upi://pay?pa=${encodeURIComponent(value)}&pn=${encodeURIComponent(extra || 'Payment')}`;
@@ -44,7 +76,12 @@ export default function QrGenerator() {
 
   return (
     <div className="generator-page container py-12">
-      <SEO title="Free QR Code Generator" description="Create permanent QR codes for URLs, UPI, Wi-Fi, WhatsApp, phone, email and text." canonicalPath="/qr-code-generator" />
+      <SEO
+        title="Free QR Code Generator — UPI, Wi-Fi, URL & WhatsApp"
+        description="Create permanent, static QR codes for URLs, UPI payments, Wi-Fi, WhatsApp, phone, email and text. Free, no sign-up, download PNG, SVG or PDF."
+        canonicalPath="/qr-code-generator"
+        jsonLd={QR_JSONLD}
+      />
       <header className="tool-header text-center">
         <span className="eyebrow">Private & browser based</span>
         <h1>QR Code Generator</h1>
@@ -81,6 +118,13 @@ export default function QrGenerator() {
           </div>
         </section>
       </div>
+
+      <ToolSeoSection
+        intro="This free QR code generator creates static, permanent QR codes right in your browser. Use it for UPI payments, store links, Wi-Fi sharing, WhatsApp messages and product packaging — with no sign-up, no watermark and no expiry."
+        howTo={{ title: 'How to create a QR code', steps: QR_STEPS }}
+        faqs={QR_FAQS}
+        related={QR_RELATED}
+      />
     </div>
   );
 }

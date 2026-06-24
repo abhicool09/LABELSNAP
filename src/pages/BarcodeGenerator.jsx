@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import JsBarcode from 'jsbarcode';
 import SEO from '../components/SEO';
+import ToolSeoSection from '../components/ToolSeoSection';
+import { buildToolSchema } from '../lib/seo-schema';
 import { downloadBlob, svgToPng } from '../lib/label-tools';
 
 const FORMATS = [
@@ -10,6 +12,36 @@ const FORMATS = [
   ['CODE39', 'Code 39'],
   ['ITF14', 'ITF-14'],
 ];
+
+const BARCODE_STEPS = [
+  { name: 'Choose a format', text: 'Pick Code 128, EAN-13, UPC-A, Code 39 or ITF-14 depending on where the barcode is used.' },
+  { name: 'Enter the value', text: 'Type the SKU, product number or tracking code. The tool validates it for the chosen format.' },
+  { name: 'Adjust the bars', text: 'Set the bar height and toggle the human-readable text under the barcode.' },
+  { name: 'Download', text: 'Export a vector SVG or a high-resolution PNG ready to place on labels.' },
+];
+
+const BARCODE_FAQS = [
+  { q: 'Which barcode format should I use?', a: 'Use Code 128 for internal SKUs and shipping (it is compact and supports letters and numbers). Use EAN-13 or UPC-A for retail products sold in stores, Code 39 for simple asset tags, and ITF-14 for outer cartons and cases.' },
+  { q: 'How many digits does EAN-13 or UPC-A need?', a: 'EAN-13 needs 12 or 13 digits and UPC-A needs 11 or 12 digits. The 13th/12th digit is a check digit the generator can calculate for you.' },
+  { q: 'Are the barcodes scannable when printed?', a: 'Yes. Download the SVG or a high-resolution PNG and print at actual size. Keep a quiet zone (white margin) around the barcode and avoid scaling it down too far.' },
+  { q: 'Is this barcode generator free?', a: 'Yes, completely free with no sign-up. Everything is generated in your browser, so your product data is never uploaded.' },
+];
+
+const BARCODE_RELATED = [
+  { to: '/qr-code-generator', label: 'QR code generator' },
+  { to: '/product-label-maker', label: 'Product label maker' },
+  { to: '/inventory-label-maker', label: 'Inventory label maker' },
+  { to: '/blog/barcode-types-explained', label: 'Guide: barcode types explained' },
+];
+
+const BARCODE_JSONLD = buildToolSchema({
+  name: 'Free Barcode Generator',
+  path: '/barcode-generator',
+  description: 'Generate printable Code 128, EAN-13, UPC-A, Code 39 and ITF-14 barcodes as SVG or PNG — free and private.',
+  howToName: 'How to create a barcode',
+  steps: BARCODE_STEPS,
+  faqs: BARCODE_FAQS,
+});
 
 export default function BarcodeGenerator() {
   const [format, setFormat] = useState('CODE128');
@@ -33,7 +65,12 @@ export default function BarcodeGenerator() {
 
   return (
     <div className="generator-page container py-12">
-      <SEO title="Free Barcode Generator" description="Generate printable Code 128, EAN-13, UPC-A, Code 39 and ITF-14 barcodes." canonicalPath="/barcode-generator" />
+      <SEO
+        title="Free Barcode Generator — Code 128, EAN-13, UPC-A & More"
+        description="Generate printable Code 128, EAN-13, UPC-A, Code 39 and ITF-14 barcodes as SVG or PNG. Free, no sign-up, validated and browser based."
+        canonicalPath="/barcode-generator"
+        jsonLd={BARCODE_JSONLD}
+      />
       <header className="tool-header text-center">
         <span className="eyebrow">Retail-ready output</span>
         <h1>Barcode Generator</h1>
@@ -57,6 +94,13 @@ export default function BarcodeGenerator() {
           )}
         </section>
       </div>
+
+      <ToolSeoSection
+        intro="This free barcode generator creates retail- and warehouse-ready barcodes in your browser. Generate SKUs, product codes and carton labels in Code 128, EAN-13, UPC-A, Code 39 or ITF-14, then download crisp SVG or high-resolution PNG files."
+        howTo={{ title: 'How to create a barcode', steps: BARCODE_STEPS }}
+        faqs={BARCODE_FAQS}
+        related={BARCODE_RELATED}
+      />
     </div>
   );
 }

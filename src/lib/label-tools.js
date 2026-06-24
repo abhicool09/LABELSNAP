@@ -165,6 +165,59 @@ export const TOOL_INVENTORY = [
   { to: '/garment-label-maker', title: 'Garment labels', text: 'Size, SKU, price and apparel tags.', icon: '👕' },
 ];
 
+// Per-template SEO: one specific FAQ + related internal links. Generic FAQs and
+// HowTo steps are composed in LabelMaker.jsx from the template itself.
+export const LABEL_SEO = {
+  shipping: {
+    faq: { q: 'Can I add a tracking barcode to the shipping label?', a: 'Yes. Enter the tracking or AWB number in the barcode field and a scannable Code 128 barcode is added to the 4×6 label automatically.' },
+    related: [{ to: '/flipkart-label-cropper', label: 'Flipkart label crop' }, { to: '/address-label-maker', label: 'Address label maker' }],
+  },
+  product: {
+    faq: { q: 'Can product labels include both a barcode and a QR code?', a: 'Yes. Add a barcode value for retail scanning and a QR destination (such as a product page) and both appear on the label.' },
+    related: [{ to: '/barcode-generator', label: 'Barcode generator' }, { to: '/price-tag-maker', label: 'Price tag maker' }],
+  },
+  price: {
+    faq: { q: 'Can I show MRP and a sale price together?', a: 'Yes. The price tag template has separate MRP and selling price fields plus a barcode, so shoppers and your POS both get what they need.' },
+    related: [{ to: '/discount-label-maker', label: 'Discount label maker' }, { to: '/product-label-maker', label: 'Product label maker' }],
+  },
+  inventory: {
+    faq: { q: 'Are these suitable for warehouse bins and FNSKU labels?', a: 'Yes. The template has bin/shelf, SKU/FNSKU and quantity fields with a barcode, ideal for shelf, bin and Amazon FBA-style identification.' },
+    related: [{ to: '/barcode-generator', label: 'Barcode generator' }, { to: '/product-label-maker', label: 'Product label maker' }],
+  },
+  address: {
+    faq: { q: 'Can I use these as return-address labels on a sheet?', a: 'Yes. Download the PDF and print multiple copies on an A4 sticker sheet, or on a thermal roll for individual labels.' },
+    related: [{ to: '/shipping-label-maker', label: 'Shipping label maker' }, { to: '/merge', label: 'Merge PDF' }],
+  },
+  manufacturing: {
+    faq: { q: 'Can I add batch, manufacture and expiry dates?', a: 'Yes. The template includes batch/lot, manufactured, best-before/expiry, MRP and net quantity fields for compliant production labels.' },
+    related: [{ to: '/product-label-maker', label: 'Product label maker' }, { to: '/price-tag-maker', label: 'Price tag maker' }],
+  },
+  custom: {
+    faq: { q: 'Can I add my own headline and QR link?', a: 'Yes. The custom template gives you a headline, main text, footer and an optional QR destination on a flexible 50×30 mm sticker.' },
+    related: [{ to: '/thank-you-sticker-maker', label: 'Thank-you sticker maker' }, { to: '/qr-code-generator', label: 'QR code generator' }],
+  },
+  pricing: {
+    faq: { q: 'How do I show the discount amount?', a: 'Enter the MRP, the offer price and a short savings note (for example "SAVE ₹700"). A barcode field is included for scanning at checkout.' },
+    related: [{ to: '/price-tag-maker', label: 'Price tag maker' }, { to: '/product-label-maker', label: 'Product label maker' }],
+  },
+  cable: {
+    faq: { q: 'Do these work as flag or wrap-around cable labels?', a: 'Yes. The compact 60×20 mm size with system, cable ID, from/to and note fields suits both flag-style and wrap-around cable identification.' },
+    related: [{ to: '/inventory-label-maker', label: 'Inventory label maker' }, { to: '/custom-label-maker', label: 'Custom label maker' }],
+  },
+  jewellery: {
+    faq: { q: 'Can I print tiny jewelry tags with purity and weight?', a: 'Yes. The 45×18 mm tag fits item, purity and weight, price and a stock-code barcode for small jewelry labels.' },
+    related: [{ to: '/price-tag-maker', label: 'Price tag maker' }, { to: '/barcode-generator', label: 'Barcode generator' }],
+  },
+  thanks: {
+    faq: { q: 'Can I add a QR code for reviews to the sticker?', a: 'Yes. Add a QR destination such as a review or Instagram link, and it prints on the thank-you sticker alongside your message.' },
+    related: [{ to: '/qr-code-generator', label: 'QR code generator' }, { to: '/custom-label-maker', label: 'Custom label maker' }],
+  },
+  garment: {
+    faq: { q: 'Can garment tags include size, SKU and price?', a: 'Yes. The apparel template has brand, garment, size, SKU, price and barcode fields for clothing and size tags.' },
+    related: [{ to: '/product-label-maker', label: 'Product label maker' }, { to: '/price-tag-maker', label: 'Price tag maker' }],
+  },
+};
+
 export function downloadBlob(blob, filename) {
   const url = URL.createObjectURL(blob);
   const link = document.createElement('a');

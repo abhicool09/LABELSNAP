@@ -134,6 +134,10 @@ export default function Layout({ children }) {
               Merge PDF
             </NavLink>
 
+            <NavLink to="/blog" className={({ isActive }) => `navbar__link${isActive ? ' active' : ''}`}>
+              Blog
+            </NavLink>
+
             <NavLink to="/about" className={({ isActive }) => `navbar__link${isActive ? ' active' : ''}`}>
               About
             </NavLink>
@@ -184,6 +188,7 @@ export default function Layout({ children }) {
         </div>
 
         <Link to="/merge" className="navbar__mobile-link">Merge PDF</Link>
+        <Link to="/blog" className="navbar__mobile-link">Blog</Link>
         <Link to="/about" className="navbar__mobile-link">About</Link>
         <Link to="/contact" className="navbar__mobile-link">Contact</Link>
       </div>
@@ -213,6 +218,7 @@ export default function Layout({ children }) {
             </div>
             <div>
               <h4 className="footer__heading">Company</h4>
+              <Link to="/blog" className="footer__link">Blog</Link>
               <Link to="/about" className="footer__link">About</Link>
               <Link to="/contact" className="footer__link">Contact</Link>
             </div>

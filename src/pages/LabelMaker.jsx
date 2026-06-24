@@ -3,7 +3,9 @@ import JsBarcode from 'jsbarcode';
 import QRCode from 'qrcode';
 import { jsPDF } from 'jspdf';
 import SEO from '../components/SEO';
-import { LABEL_TEMPLATES } from '../lib/label-tools';
+import ToolSeoSection from '../components/ToolSeoSection';
+import { buildToolSchema } from '../lib/seo-schema';
+import { LABEL_TEMPLATES, LABEL_SEO } from '../lib/label-tools';
 
 function initialValues(template) {
   return Object.fromEntries(template.fields.map(([key, , example]) => [key, example]));
@@ -80,9 +82,49 @@ export default function LabelMaker({ templateKey }) {
     pdf.save(`labelsnap-${templateKey}-labels.pdf`);
   };
 
+  const path = canonicalPaths[templateKey];
+  const [labelW, labelH] = template.size;
+  const hasCode = template.fields.some(([key]) => key === 'barcode' || key === 'qr');
+  const seoMeta = LABEL_SEO[templateKey] || { related: [] };
+
+  const steps = [
+    { name: 'Fill in your details', text: `Enter fields like ${template.fields.slice(0, 2).map(([, fieldLabel]) => fieldLabel.toLowerCase()).join(' and ')}. The preview updates as you type.` },
+    ...(hasCode ? [{ name: 'Add a barcode or QR code', text: 'Type a barcode value or QR destination and it is placed on the label automatically.' }] : []),
+    { name: 'Set the accent and copies', text: 'Choose an accent colour and how many copies to include in the PDF.' },
+    { name: 'Download the print-ready PDF', text: `The PDF uses the exact ${labelW} × ${labelH} mm size — print at 100% / Actual Size.` },
+  ];
+
+  const faqs = [
+    { q: `Is the ${template.title.toLowerCase()} free?`, a: 'Yes — it is completely free with no sign-up and no watermark. Create and download as many labels as you need.' },
+    ...(seoMeta.faq ? [seoMeta.faq] : []),
+    { q: 'Is my information uploaded to a server?', a: 'No. The label is generated entirely in your browser, so nothing you type ever leaves your device.' },
+    { q: 'What size is this label and how should I print it?', a: `This template is ${labelW} × ${labelH} mm. Download the PDF and print at 100% / Actual Size (not "Fit to page") so the size stays accurate on thermal printers or A4 sticker sheets.` },
+  ];
+
+  const related = [
+    ...(seoMeta.related || []),
+    { to: '/tools', label: 'All label tools' },
+    { to: '/blog/label-makers-for-online-sellers', label: 'Guide: label makers for sellers' },
+  ];
+
+  const jsonLd = useMemo(
+    () => buildToolSchema({
+      name: template.title,
+      path,
+      description: template.description,
+      howToName: `How to make a ${template.title.toLowerCase()}`,
+      steps,
+      faqs,
+    }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [templateKey],
+  );
+
+  const metaTitle = `${template.title} — Free & Print-ready | LabelSnap`;
+
   return (
     <div className="generator-page container py-12">
-      <SEO title={template.title} description={template.description} canonicalPath={canonicalPaths[templateKey]} />
+      <SEO title={metaTitle} description={template.description} canonicalPath={path} jsonLd={jsonLd} />
       <header className="tool-header text-center">
         <span className="eyebrow">{template.size[0]} × {template.size[1]} mm template</span>
         <h1>{template.title}</h1>
@@ -119,6 +161,13 @@ export default function LabelMaker({ templateKey }) {
           <p className="preview-caption">Live preview • output is generated locally</p>
         </section>
       </div>
+
+      <ToolSeoSection
+        intro={template.description}
+        howTo={{ title: `How to make a ${template.title.toLowerCase()}`, steps }}
+        faqs={faqs}
+        related={related}
+      />
     </div>
   );
 }

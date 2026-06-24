@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import AdBanner from '../components/AdBanner';
 import SEO from '../components/SEO';
+import { TOOL_INVENTORY } from '../lib/label-tools';
 
 const HOME_JSONLD = {
   '@context': 'https://schema.org',
@@ -30,121 +31,134 @@ const HOME_JSONLD = {
   ],
 };
 
+const CROPPERS = [
+  { to: '/flipkart-label-cropper', title: 'Flipkart label crop', text: 'Auto-detect, crop and add SKU.', icon: '📦' },
+  { to: '/meesho-label-cropper', title: 'Meesho label crop', text: 'Invoice, no-invoice & courier formats.', icon: '🛍️' },
+  { to: '/amazon-label-cropper', title: 'Amazon label crop', text: 'Easy Ship labels, thermal ready.', icon: '🛒' },
+  { to: '/shipping-label-cropper', title: 'Any label cropper', text: 'Works with any marketplace PDF.', icon: '✂️' },
+  { to: '/merge', title: 'Merge label PDFs', text: 'Combine many PDFs into one file.', icon: '🗂️' },
+  { to: '/4x6-label-print-a4', title: '4×6 labels on A4', text: 'Arrange thermal labels on a sheet.', icon: '🖨️' },
+];
+
+const GENERATORS = TOOL_INVENTORY.filter((tool) => tool.to.includes('generator'));
+const MAKERS = TOOL_INVENTORY.filter((tool) => !tool.to.includes('generator'));
+
+const FEATURES = [
+  { icon: '⚡', title: 'Auto-detect', text: 'The engine finds label dimensions for you — no manual cropping.' },
+  { icon: '🖨️', title: 'Thermal & A4', text: '4×6 for thermal printers or 4-up on standard A4 sticker sheets.' },
+  { icon: '🔒', title: 'Private by design', text: 'Files never leave your browser. Everything runs on your device.' },
+  { icon: '🆓', title: 'Free forever', text: 'No sign-ups, no limits, no hidden costs. Built for sellers.' },
+];
+
+function ToolTile({ to, icon, title, text }) {
+  return (
+    <Link className="label-tool-tile" to={to}>
+      <span className="label-tool-icon" aria-hidden="true">{icon}</span>
+      <span>
+        <strong>{title}</strong>
+        <small>{text}</small>
+      </span>
+      <span className="label-tool-arrow" aria-hidden="true">→</span>
+    </Link>
+  );
+}
+
 export default function Home() {
   return (
-    <div className="home-page">
+    <div className="home-page container">
       <SEO
         title="Free Shipping Label Cropper for Amazon, Flipkart and Meesho"
-        description="Crop Amazon, Flipkart and Meesho shipping label PDFs for 4x6 thermal printers or A4 sheets. Free, private and browser based."
+        description="Crop Amazon, Flipkart and Meesho shipping label PDFs for 4x6 thermal printers or A4 sheets. Plus QR codes, barcodes and 12 free label makers. Browser based and private."
         canonicalPath="/"
         jsonLd={HOME_JSONLD}
       />
 
-      <section className="hero text-center py-16">
-        <h1 className="text-5xl md:text-6xl font-extrabold mb-6 gradient-text">Crop Shipping Labels Instantly</h1>
-        <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
-          The ultimate free tool for Flipkart, Meesho, and Amazon sellers. Automatically crop, resize, and print your shipping labels for thermal and A4 printers. 100% private and secure.
+      <section className="home-hero text-center">
+        <span className="eyebrow">Free · Private · No sign-up</span>
+        <h1 className="home-hero__title">
+          Crop, print &amp; create shipping labels <span className="text-blue">in seconds</span>
+        </h1>
+        <p className="home-hero__subtitle">
+          Auto-crop Flipkart, Meesho and Amazon labels — then generate QR codes, barcodes and 12 kinds
+          of print-ready labels. Everything runs in your browser, so your data never leaves your device.
         </p>
-        <div className="flex flex-wrap justify-center gap-4">
-          <Link to="/flipkart-label-cropper" className="btn-primary text-lg px-8 py-3 shadow-lg hover:shadow-blue-500/20">
-            Flipkart Cropper
-          </Link>
-          <Link to="/meesho-label-cropper" className="btn-secondary text-lg px-8 py-3 shadow-lg hover:shadow-purple-500/20">
-            Meesho Cropper
-          </Link>
-          <Link to="/amazon-label-cropper" className="btn-secondary text-lg px-8 py-3 shadow-lg hover:shadow-teal-500/20">
-            Amazon Cropper
-          </Link>
+        <div className="home-hero__actions">
+          <a href="#tools" className="btn-primary">Browse all tools</a>
+          <Link to="/flipkart-label-cropper" className="btn-secondary">Crop a label now</Link>
         </div>
       </section>
 
-      <section className="tools-grid grid md:grid-cols-3 gap-8 py-12">
-        <div className="glass-card hover-lift">
-          <div className="text-4xl mb-4">📦</div>
-          <h3 className="text-2xl font-bold mb-3">Flipkart Crop</h3>
-          <p className="text-gray-400 mb-6">Auto-detect and crop Flipkart labels perfectly. Adds SKU automatically.</p>
-          <Link to="/flipkart-label-cropper" className="text-blue-400 font-medium hover:text-blue-300 flex items-center gap-2">
-            Use Tool <span>→</span>
-          </Link>
-        </div>
-        
-        <div className="glass-card hover-lift">
-          <div className="text-4xl mb-4">🛍️</div>
-          <h3 className="text-2xl font-bold mb-3">Meesho Crop</h3>
-          <p className="text-gray-400 mb-6">Supports all Meesho label formats: with invoice, without invoice, and courier-generated.</p>
-          <Link to="/meesho-label-cropper" className="text-purple-400 font-medium hover:text-purple-300 flex items-center gap-2">
-            Use Tool <span>→</span>
-          </Link>
+      <section id="tools" className="tool-directory">
+        <div className="section-head text-center">
+          <h2>All label tools</h2>
+          <p className="text-muted">Pick a tool and start instantly — no account, instant download.</p>
         </div>
 
-        <div className="glass-card hover-lift">
-          <div className="text-4xl mb-4">🛒</div>
-          <h3 className="text-2xl font-bold mb-3">Amazon Crop</h3>
-          <p className="text-gray-400 mb-6">Crop Amazon Easy Ship labels fast and efficiently. Ready for thermal print.</p>
-          <Link to="/amazon-label-cropper" className="text-teal-400 font-medium hover:text-teal-300 flex items-center gap-2">
-            Use Tool <span>→</span>
-          </Link>
+        <h3 className="tool-group-title">Shipping label croppers</h3>
+        <div className="label-tools-grid">
+          {CROPPERS.map((tool) => (
+            <ToolTile key={tool.to} {...tool} />
+          ))}
+        </div>
+
+        <h3 className="tool-group-title">QR &amp; barcode generators</h3>
+        <div className="label-tools-grid">
+          {GENERATORS.map((tool) => (
+            <ToolTile key={tool.to} {...tool} />
+          ))}
+        </div>
+
+        <h3 className="tool-group-title">Label makers</h3>
+        <div className="label-tools-grid">
+          {MAKERS.map((tool) => (
+            <ToolTile key={tool.to} {...tool} />
+          ))}
         </div>
       </section>
 
-      <section className="studio-callout">
-        <div>
-          <span className="eyebrow">New: LabelSnap Studio</span>
-          <h2>QR codes, barcodes and 12 purpose-built label makers.</h2>
-          <p>Create print-ready shipping, product, inventory, price, batch, address and package labels without uploading business data.</p>
-        </div>
-        <Link to="/tools" className="btn-primary">Explore all tools</Link>
-      </section>
-
-      <section className="features py-12">
-        <h2 className="text-3xl font-bold text-center mb-10">Why Sellers Love <span className="text-blue">LabelSnap</span></h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="glass-card p-6">
-            <h4 className="font-bold text-lg mb-2 text-blue-400">⚡ Auto-Detect</h4>
-            <p className="text-sm text-gray-400">Our smart engine detects label dimensions automatically. No manual cropping needed.</p>
-          </div>
-          <div className="glass-card p-6">
-            <h4 className="font-bold text-lg mb-2 text-purple-400">🖨️ Thermal & A4</h4>
-            <p className="text-sm text-gray-400">Generate 4x6 labels for thermal printers or 4-up labels for standard A4 sticker sheets.</p>
-          </div>
-          <div className="glass-card p-6">
-            <h4 className="font-bold text-lg mb-2 text-teal-400">🔒 Privacy First</h4>
-            <p className="text-sm text-gray-400">Your labels never leave your browser. Processing happens entirely on your device.</p>
-          </div>
-          <div className="glass-card p-6">
-            <h4 className="font-bold text-lg mb-2 text-pink-400">🆓 Free Forever</h4>
-            <p className="text-sm text-gray-400">No sign-ups, no limits, no hidden costs. A truly free tool for the seller community.</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="how-it-works py-12 text-center">
-        <h2 className="text-3xl font-bold mb-10">How It Works</h2>
-        <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-12">
-          <div className="step relative">
-            <div className="w-16 h-16 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center text-2xl font-bold mx-auto mb-4 border border-blue-500/30">1</div>
-            <h4 className="font-bold">Upload PDF</h4>
-            <p className="text-sm text-gray-400">Select your downloaded labels</p>
-          </div>
-          <div className="hidden md:block text-gray-600 text-2xl">→</div>
-          <div className="step relative">
-            <div className="w-16 h-16 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center text-2xl font-bold mx-auto mb-4 border border-purple-500/30">2</div>
-            <h4 className="font-bold">Choose Format</h4>
-            <p className="text-sm text-gray-400">Thermal or A4 sheet</p>
-          </div>
-          <div className="hidden md:block text-gray-600 text-2xl">→</div>
-          <div className="step relative">
-            <div className="w-16 h-16 rounded-full bg-teal-500/20 text-teal-400 flex items-center justify-center text-2xl font-bold mx-auto mb-4 border border-teal-500/30">3</div>
-            <h4 className="font-bold">Download</h4>
-            <p className="text-sm text-gray-400">Print perfectly cropped labels</p>
-          </div>
-        </div>
-      </section>
-      
-      <div className="py-8">
+      <div className="home-ad">
         <AdBanner variant="inline" />
       </div>
 
+      <section className="features">
+        <div className="section-head text-center">
+          <h2>Why sellers love <span className="text-blue">LabelSnap</span></h2>
+        </div>
+        <div className="feature-grid">
+          {FEATURES.map((feature) => (
+            <div className="feature-card" key={feature.title}>
+              <span className="feature-card__icon" aria-hidden="true">{feature.icon}</span>
+              <h4 className="feature-card__title">{feature.title}</h4>
+              <p className="feature-card__text">{feature.text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="how-it-works text-center">
+        <div className="section-head text-center">
+          <h2>How it works</h2>
+        </div>
+        <div className="steps">
+          <div className="step">
+            <span className="step__num">1</span>
+            <h4>Upload your PDF</h4>
+            <p className="text-muted">Select the labels you downloaded.</p>
+          </div>
+          <span className="step__arrow" aria-hidden="true">→</span>
+          <div className="step">
+            <span className="step__num">2</span>
+            <h4>Choose a format</h4>
+            <p className="text-muted">4×6 thermal or A4 sheet.</p>
+          </div>
+          <span className="step__arrow" aria-hidden="true">→</span>
+          <div className="step">
+            <span className="step__num">3</span>
+            <h4>Download &amp; print</h4>
+            <p className="text-muted">Perfectly cropped, print-ready labels.</p>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
