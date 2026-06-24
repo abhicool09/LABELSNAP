@@ -35,6 +35,14 @@ export default function ToolsHub() {
         <p className="subtitle">Original, browser-based generators for selling, packing, retail and warehouse work. No sign-up and no uploads.</p>
       </header>
       <div className="label-tools-grid">
+        <Link className="label-tool-tile label-tool-tile--featured" to="/ai-label-studio">
+          <span className="label-tool-icon" aria-hidden="true">✎</span>
+          <span>
+            <strong>LabelSnap Studio</strong>
+            <small>Bulk CSV, live A4 sheets, barcodes and QR codes.</small>
+          </span>
+          <span className="label-tool-arrow" aria-hidden="true">→</span>
+        </Link>
         {TOOL_INVENTORY.map((tool) => (
           <Link className="label-tool-tile" to={tool.to} key={tool.to}>
             <span className="label-tool-icon" aria-hidden="true">{tool.icon}</span>

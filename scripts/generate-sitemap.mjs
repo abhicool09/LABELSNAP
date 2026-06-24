@@ -13,6 +13,7 @@ const routes = [
   '/4x6-label-print-a4',
   '/merge',
   '/tools',
+  '/ai-label-studio',
   '/qr-code-generator',
   '/barcode-generator',
   '/shipping-label-maker',

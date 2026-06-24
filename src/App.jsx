@@ -17,6 +17,7 @@ const QrGenerator = lazy(() => import('./pages/QrGenerator'));
 const BarcodeGenerator = lazy(() => import('./pages/BarcodeGenerator'));
 const LabelMaker = lazy(() => import('./pages/LabelMaker'));
 const CheckoutComplete = lazy(() => import('./pages/CheckoutComplete'));
+const LabelStudio = lazy(() => import('./pages/LabelStudio'));
 const Blog = lazy(() => import('./pages/Blog'));
 const BlogPost = lazy(() => import('./pages/BlogPost'));
 const About = lazy(() => import('./pages/About'));
@@ -89,7 +90,7 @@ export default function App() {
           <Route path="/qr-label" element={<QrGenerator />} />
           <Route path="/barcode-label" element={<BarcodeGenerator />} />
           <Route path="/generator" element={<ToolsHub />} />
-          <Route path="/ai-label-studio" element={<ToolsHub />} />
+          <Route path="/ai-label-studio" element={<LabelStudio />} />
           <Route path="/thermal-generator" element={<ToolsHub />} />
           <Route path="/checkout/complete" element={<CheckoutComplete />} />
           <Route path="/blog" element={<Blog />} />

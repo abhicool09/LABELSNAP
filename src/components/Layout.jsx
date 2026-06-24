@@ -99,6 +99,13 @@ export default function Layout({ children }) {
                   <span className="navbar__dropdown-emoji" aria-hidden="true">▥</span>
                   <span className="navbar__dropdown-item-title">Barcode generator</span>
                 </Link>
+                <Link to="/ai-label-studio" className="navbar__dropdown-item" role="menuitem">
+                  <span className="navbar__dropdown-emoji" aria-hidden="true">✎</span>
+                  <span>
+                    <span className="navbar__dropdown-item-title">LabelSnap Studio</span>
+                    <span className="navbar__dropdown-item-sub">Bulk CSV & A4 label sheets</span>
+                  </span>
+                </Link>
 
                 <div className="navbar__dropdown-divider" />
                 <div className="navbar__dropdown-label">Shipping croppers</div>
@@ -169,6 +176,7 @@ export default function Layout({ children }) {
         <Link to="/tools" className="navbar__mobile-link">All Label Tools</Link>
         <Link to="/qr-code-generator" className="navbar__mobile-link">QR Generator</Link>
         <Link to="/barcode-generator" className="navbar__mobile-link">Barcode Generator</Link>
+        <Link to="/ai-label-studio" className="navbar__mobile-link">LabelSnap Studio</Link>
 
         <div className="navbar__mobile-section">
           <div className="navbar__mobile-section-title">Flipkart</div>
