@@ -87,6 +87,15 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="studio-callout">
+        <div>
+          <span className="eyebrow">New: LabelSnap Studio</span>
+          <h2>QR codes, barcodes and 12 purpose-built label makers.</h2>
+          <p>Create print-ready shipping, product, inventory, price, batch, address and package labels without uploading business data.</p>
+        </div>
+        <Link to="/tools" className="btn-primary">Explore all tools</Link>
+      </section>
+
       <section className="features py-12">
         <h2 className="text-3xl font-bold text-center mb-10">Why Sellers Love <span className="text-blue">LabelSnap</span></h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">

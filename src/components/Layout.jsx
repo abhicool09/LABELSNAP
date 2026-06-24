@@ -84,6 +84,24 @@ export default function Layout({ children }) {
                 </svg>
               </button>
               <div className="navbar__dropdown-menu" role="menu">
+                <Link to="/tools" className="navbar__dropdown-item" role="menuitem">
+                  <span className="navbar__dropdown-emoji" aria-hidden="true">✦</span>
+                  <span>
+                    <span className="navbar__dropdown-item-title">All label tools</span>
+                    <span className="navbar__dropdown-item-sub">QR, barcode & label makers</span>
+                  </span>
+                </Link>
+                <Link to="/qr-code-generator" className="navbar__dropdown-item" role="menuitem">
+                  <span className="navbar__dropdown-emoji" aria-hidden="true">▦</span>
+                  <span className="navbar__dropdown-item-title">QR code generator</span>
+                </Link>
+                <Link to="/barcode-generator" className="navbar__dropdown-item" role="menuitem">
+                  <span className="navbar__dropdown-emoji" aria-hidden="true">▥</span>
+                  <span className="navbar__dropdown-item-title">Barcode generator</span>
+                </Link>
+
+                <div className="navbar__dropdown-divider" />
+                <div className="navbar__dropdown-label">Shipping croppers</div>
                 <Link to="/flipkart-label-cropper" className="navbar__dropdown-item" role="menuitem">
                   <span className="navbar__dropdown-emoji" aria-hidden="true">📦</span>
                   <span>
@@ -144,6 +162,9 @@ export default function Layout({ children }) {
 
       <div className={`navbar__mobile-menu${mobileOpen ? ' open' : ''}`}>
         <Link to="/" className="navbar__mobile-link">Home</Link>
+        <Link to="/tools" className="navbar__mobile-link">All Label Tools</Link>
+        <Link to="/qr-code-generator" className="navbar__mobile-link">QR Generator</Link>
+        <Link to="/barcode-generator" className="navbar__mobile-link">Barcode Generator</Link>
 
         <div className="navbar__mobile-section">
           <div className="navbar__mobile-section-title">Flipkart</div>
@@ -177,6 +198,11 @@ export default function Layout({ children }) {
             <div>
               <h4 className="footer__heading">Tools</h4>
               <Link to="/shipping-label-cropper" className="footer__link">Shipping Label Cropper</Link>
+              <Link to="/tools" className="footer__link">All Label Tools</Link>
+              <Link to="/qr-code-generator" className="footer__link">QR Code Generator</Link>
+              <Link to="/barcode-generator" className="footer__link">Barcode Generator</Link>
+              <Link to="/shipping-label-maker" className="footer__link">Shipping Label Maker</Link>
+              <Link to="/product-label-maker" className="footer__link">Product Label Maker</Link>
               <Link to="/flipkart-label-cropper" className="footer__link">Flipkart Label Crop</Link>
               <Link to="/meesho-label-cropper" className="footer__link">Meesho Label Crop</Link>
               <Link to="/meesho-label-cropper-with-invoice" className="footer__link">Meesho With Invoice</Link>

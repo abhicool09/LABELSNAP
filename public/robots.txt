@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://labelsnap.vercel.app/sitemap.xml
