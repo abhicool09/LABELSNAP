@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import AdBanner from '../components/AdBanner';
 import SEO from '../components/SEO';
 import { TOOL_INVENTORY } from '../lib/label-tools';
+import ProductCheckout from '../components/ProductCheckout';
 
 const HOME_JSONLD = {
   '@context': 'https://schema.org',
@@ -113,6 +114,82 @@ export default function Home() {
           {MAKERS.map((tool) => (
             <ToolTile key={tool.to} {...tool} />
           ))}
+        </div>
+      </section>
+
+      <section className="label-products">
+        <div className="section-head text-center">
+          <span className="eyebrow">Thermal label sizes</span>
+          <h2>Choose the right roll for every parcel</h2>
+          <p className="text-muted">Blank direct-thermal labels for crisp, ink-free shipping and courier printing.</p>
+        </div>
+
+        <div className="product-card-grid">
+          <article className="product-card">
+            <div className="product-card__visual">
+              <span className="product-card__badge">Most popular</span>
+              <img
+                src="/images/products/thermal-label-roll-4x6.png"
+                alt="Blank 4 by 6 inch direct thermal shipping label roll"
+                loading="lazy"
+              />
+            </div>
+            <div className="product-card__body">
+              <div className="product-card__heading">
+                <div>
+                  <span className="product-card__category">Shipping standard</span>
+                  <h3>4 × 6 inch thermal labels</h3>
+                </div>
+                <strong className="product-card__size">100 × 150 mm</strong>
+              </div>
+              <p>
+                The universal size for marketplace, courier and warehouse shipping labels. Plenty of room for
+                addresses, routing details and large scannable barcodes.
+              </p>
+              <ul className="product-card__features">
+                <li>Ideal for Amazon, Flipkart, Meesho and courier labels</li>
+                <li>Direct thermal — no ink or toner required</li>
+                <li>Strong self-adhesive backing for parcels and poly mailers</li>
+              </ul>
+              <Link className="product-card__action" to="/shipping-label-cropper">
+                Prepare 4×6 labels <span aria-hidden="true">→</span>
+              </Link>
+              <ProductCheckout productId="thermal-4x6" />
+            </div>
+          </article>
+
+          <article className="product-card">
+            <div className="product-card__visual product-card__visual--cool">
+              <span className="product-card__badge product-card__badge--soft">Compact</span>
+              <img
+                src="/images/products/thermal-label-roll-3x5.png"
+                alt="Blank 3 by 5 inch compact direct thermal label roll"
+                loading="lazy"
+              />
+            </div>
+            <div className="product-card__body">
+              <div className="product-card__heading">
+                <div>
+                  <span className="product-card__category">Space saver</span>
+                  <h3>3 × 5 inch thermal labels</h3>
+                </div>
+                <strong className="product-card__size">76 × 127 mm</strong>
+              </div>
+              <p>
+                A compact format for smaller parcels, product identification and lightweight courier workflows
+                where a full 4×6 label is unnecessary.
+              </p>
+              <ul className="product-card__features">
+                <li>Great for compact boxes, pouches and internal labels</li>
+                <li>Bright white surface for sharp barcode contrast</li>
+                <li>Rounded corners and easy-peel liner</li>
+              </ul>
+              <Link className="product-card__action" to="/tools">
+                Explore compact label tools <span aria-hidden="true">→</span>
+              </Link>
+              <ProductCheckout productId="thermal-3x5" />
+            </div>
+          </article>
         </div>
       </section>
 
