@@ -1,9 +1,15 @@
 import React from 'react';
 import MergeTool from '../components/MergeTool';
+import SEO from '../components/SEO';
 
 export default function MergePdf() {
   return (
     <div className="merge-page">
+      <SEO
+        title="Merge Shipping Label PDFs Online - Free and Private"
+        description="Combine Amazon, Flipkart, Meesho and courier label PDFs in your chosen order. Free browser-based PDF merging with no file uploads."
+        canonicalPath="/merge"
+      />
       <MergeTool />
       
       <div className="tool-content mt-12 max-w-4xl mx-auto px-4">

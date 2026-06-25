@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import UploadZone from './UploadZone';
 import AdBanner from './AdBanner';
 import SEO from './SEO';
@@ -9,6 +9,7 @@ export default function ToolPage({
   title,
   subtitle,
   marketplace,
+  cropper = cropPdf,
   description,
   features,
   seoContent,
@@ -26,6 +27,7 @@ export default function ToolPage({
   const marketplaceName = marketplace
     ? marketplace.charAt(0).toUpperCase() + marketplace.slice(1)
     : 'shipping';
+  const guide = getMarketplaceGuide(marketplace);
 
   const jsonLd = useMemo(() => {
     const path = canonicalPath || location.pathname;
@@ -88,7 +90,7 @@ export default function ToolPage({
     setResult(null);
 
     try {
-      const output = await cropPdf(file, marketplace, layout);
+      const output = await cropper(file, marketplace, layout);
       const downloadUrl = URL.createObjectURL(output.blob);
       setResult({
         downloadUrl,
@@ -201,6 +203,12 @@ export default function ToolPage({
         <div className="description mb-8">
           <h2>About this Tool</h2>
           <p>{description}</p>
+          {guide && (
+            <p className="mt-4">
+              Need printing help? Read the{' '}
+              <Link to={guide.to}>{guide.label}</Link> for sizing, printer settings and barcode tips.
+            </p>
+          )}
         </div>
 
         {features && features.length > 0 && (
@@ -223,4 +231,26 @@ export default function ToolPage({
       </div>
     </div>
   );
+}
+
+function getMarketplaceGuide(marketplace) {
+  if (marketplace === 'flipkart') {
+    return {
+      to: '/blog/flipkart-label-printing-guide',
+      label: 'Flipkart label printing guide',
+    };
+  }
+  if (marketplace?.startsWith('meesho')) {
+    return {
+      to: '/blog/meesho-label-printing-guide',
+      label: 'Meesho label printing guide',
+    };
+  }
+  if (marketplace === 'amazon') {
+    return {
+      to: '/blog/amazon-easy-ship-label-guide',
+      label: 'Amazon Easy Ship label guide',
+    };
+  }
+  return null;
 }

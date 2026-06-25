@@ -1,8 +1,14 @@
 import React from 'react';
+import SEO from '../components/SEO';
 
 export default function Terms() {
   return (
     <div className="static-page max-w-4xl mx-auto py-12 px-4">
+      <SEO
+        title="LabelSnap Terms of Service"
+        description="Review the terms for using LabelSnap browser-based shipping-label, PDF, barcode and QR-code tools."
+        canonicalPath="/terms"
+      />
       <h1 className="text-4xl font-bold mb-8 gradient-text text-center">Terms of Service</h1>
       
       <div className="glass-card p-8 space-y-6 text-gray-300">

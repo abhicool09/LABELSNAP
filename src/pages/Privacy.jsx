@@ -1,8 +1,14 @@
 import React from 'react';
+import SEO from '../components/SEO';
 
 export default function Privacy() {
   return (
     <div className="static-page max-w-4xl mx-auto py-12 px-4">
+      <SEO
+        title="LabelSnap Privacy Policy"
+        description="Read how LabelSnap processes shipping-label PDFs locally in your browser and protects customer and order information."
+        canonicalPath="/privacy"
+      />
       <h1 className="text-4xl font-bold mb-8 gradient-text text-center">Privacy Policy</h1>
       
       <div className="glass-card p-8 space-y-6 text-gray-300">

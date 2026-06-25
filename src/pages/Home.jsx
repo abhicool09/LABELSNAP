@@ -51,6 +51,27 @@ const FEATURES = [
   { icon: '🆓', title: 'Free forever', text: 'No sign-ups, no limits, no hidden costs. Built for sellers.' },
 ];
 
+const SELLER_GUIDES = [
+  {
+    to: '/blog/amazon-easy-ship-label-guide',
+    category: 'Amazon sellers',
+    title: 'Crop Amazon Easy Ship labels for 4x6 printers',
+    text: 'Skip invoice pages, preserve barcode quiet zones and print at the correct size.',
+  },
+  {
+    to: '/blog/flipkart-label-printing-guide',
+    category: 'Flipkart sellers',
+    title: 'Print Flipkart labels on thermal or A4 paper',
+    text: 'A practical workflow from Seller Hub download to a clean print-ready label.',
+  },
+  {
+    to: '/blog/meesho-label-printing-guide',
+    category: 'Meesho suppliers',
+    title: 'Choose the correct Meesho label and invoice format',
+    text: 'Understand no-invoice, with-invoice and courier-generated label layouts.',
+  },
+];
+
 function ToolTile({ to, icon, title, text }) {
   return (
     <Link className="label-tool-tile" to={to}>
@@ -196,6 +217,27 @@ export default function Home() {
       <div className="home-ad">
         <AdBanner variant="inline" />
       </div>
+
+      <section className="home-guides">
+        <div className="section-head text-center">
+          <span className="eyebrow">Seller knowledge base</span>
+          <h2>Print every marketplace label correctly</h2>
+          <p className="text-muted">Short guides for cleaner barcodes, correct sizing and fewer wasted sheets.</p>
+        </div>
+        <div className="blog-list">
+          {SELLER_GUIDES.map((guide) => (
+            <Link key={guide.to} to={guide.to} className="blog-card">
+              <span className="blog-card__category">{guide.category}</span>
+              <h3 className="blog-card__title">{guide.title}</h3>
+              <p className="blog-card__excerpt">{guide.text}</p>
+              <span className="blog-card__meta">Read guide →</span>
+            </Link>
+          ))}
+        </div>
+        <div className="text-center mt-6">
+          <Link to="/blog" className="btn-secondary">Browse all seller guides</Link>
+        </div>
+      </section>
 
       <section className="features">
         <div className="section-head text-center">

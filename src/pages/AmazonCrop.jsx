@@ -1,5 +1,6 @@
 import React from 'react';
 import ToolPage from '../components/ToolPage';
+import { cropAmazonPdfCompat } from '../lib/cropper/amazon-compat';
 
 export default function AmazonCrop() {
   return (
@@ -7,6 +8,7 @@ export default function AmazonCrop() {
       title="Amazon Shipping Label Crop Tool"
       subtitle="Automated cropping and sorting for Amazon shipping labels"
       marketplace="amazon"
+      cropper={cropAmazonPdfCompat}
       metaTitle="Amazon Shipping Label Cropper - Free 4x6 Label Tool"
       metaDescription="Crop Amazon Easy Ship label PDFs automatically and ignore invoice pages. Create 4x6 thermal labels or 4-up A4 sheets in your browser."
       canonicalPath="/amazon-label-cropper"

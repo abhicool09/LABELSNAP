@@ -10,26 +10,31 @@ export default function SEO({
   canonicalPath = '/',
   type = 'website',
   jsonLd = null,
+  noindex = false,
 }) {
   useEffect(() => {
     const origin = getSiteOrigin();
     const canonicalUrl = new URL(canonicalPath, origin).toString();
     const imageUrl = new URL('/og-image.png', origin).toString();
 
+    document.head
+      .querySelectorAll('script[data-seo-static-jsonld]')
+      .forEach((script) => script.remove());
     document.title = title;
     setMeta('description', description);
-    setMeta('robots', 'index, follow');
+    setMeta('robots', noindex ? 'noindex, nofollow' : 'index, follow');
     setMeta('og:title', title, 'property');
     setMeta('og:description', description, 'property');
     setMeta('og:type', type, 'property');
     setMeta('og:url', canonicalUrl, 'property');
     setMeta('og:image', imageUrl, 'property');
+    setMeta('og:locale', 'en_IN', 'property');
     setMeta('twitter:card', 'summary_large_image');
     setMeta('twitter:title', title);
     setMeta('twitter:description', description);
     setMeta('twitter:image', imageUrl);
     setCanonical(canonicalUrl);
-  }, [canonicalPath, description, title, type]);
+  }, [canonicalPath, description, noindex, title, type]);
 
   useEffect(() => {
     if (!jsonLd) return undefined;

@@ -54,7 +54,7 @@ export default function CheckoutComplete() {
 
   return (
     <div className="container py-16">
-      <SEO title="Order status" description="Check your LabelSnap thermal label order." canonicalPath="/checkout/complete" />
+      <SEO title="Order status" description="Check your LabelSnap thermal label order." canonicalPath="/checkout/complete" noindex />
       <section className={`checkout-result checkout-result--${state.status}`}>
         <span className="checkout-result__icon">{state.status === 'success' ? '✓' : state.status === 'error' ? '!' : '…'}</span>
         <h1>{state.status === 'success' ? 'Order confirmed' : 'Checking your order'}</h1>

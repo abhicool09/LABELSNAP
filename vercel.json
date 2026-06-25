@@ -1,8 +1,31 @@
 {
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
+  "redirects": [
+    { "source": "/flipkart", "destination": "/flipkart-label-cropper", "permanent": true },
+    { "source": "/flipkart-shipping-label-cropper", "destination": "/flipkart-label-cropper", "permanent": true },
+    { "source": "/meesho", "destination": "/meesho-label-cropper", "permanent": true },
+    { "source": "/meesho-shipping-label-cropper", "destination": "/meesho-label-cropper", "permanent": true },
+    { "source": "/meesho-invoice", "destination": "/meesho-label-cropper-with-invoice", "permanent": true },
+    { "source": "/meesho-courier", "destination": "/meesho-courier-label-cropper", "permanent": true },
+    { "source": "/meesho-courier-invoice", "destination": "/meesho-courier-label-cropper-with-invoice", "permanent": true },
+    { "source": "/amazon", "destination": "/amazon-label-cropper", "permanent": true },
+    { "source": "/amazon-shipping-label-cropper", "destination": "/amazon-label-cropper", "permanent": true },
+    { "source": "/free-qr-code-generator", "destination": "/qr-code-generator", "permanent": true },
+    { "source": "/free-barcode-generator", "destination": "/barcode-generator", "permanent": true },
+    { "source": "/shipping-label", "destination": "/shipping-label-maker", "permanent": true },
+    { "source": "/product-label", "destination": "/product-label-maker", "permanent": true },
+    { "source": "/price-label", "destination": "/price-tag-maker", "permanent": true },
+    { "source": "/inventory-label", "destination": "/inventory-label-maker", "permanent": true },
+    { "source": "/address-label", "destination": "/address-label-maker", "permanent": true },
+    { "source": "/manufacturing-label", "destination": "/manufacturing-label-maker", "permanent": true },
+    { "source": "/custom-label", "destination": "/custom-label-maker", "permanent": true },
+    { "source": "/pricing-label", "destination": "/discount-label-maker", "permanent": true },
+    { "source": "/cable-label", "destination": "/cable-label-maker", "permanent": true },
+    { "source": "/jewellery-label", "destination": "/jewelry-tag-maker", "permanent": true },
+    { "source": "/thank-you-label", "destination": "/thank-you-sticker-maker", "permanent": true },
+    { "source": "/garment-label", "destination": "/garment-label-maker", "permanent": true },
+    { "source": "/qr-label", "destination": "/qr-code-generator", "permanent": true },
+    { "source": "/barcode-label", "destination": "/barcode-generator", "permanent": true },
+    { "source": "/generator", "destination": "/tools", "permanent": true },
+    { "source": "/thermal-generator", "destination": "/tools", "permanent": true }
   ]
 }

@@ -227,6 +227,9 @@ export default function Layout({ children }) {
             <div>
               <h4 className="footer__heading">Company</h4>
               <Link to="/blog" className="footer__link">Blog</Link>
+              <Link to="/blog/amazon-easy-ship-label-guide" className="footer__link">Amazon Printing Guide</Link>
+              <Link to="/blog/flipkart-label-printing-guide" className="footer__link">Flipkart Printing Guide</Link>
+              <Link to="/blog/meesho-label-printing-guide" className="footer__link">Meesho Printing Guide</Link>
               <Link to="/about" className="footer__link">About</Link>
               <Link to="/contact" className="footer__link">Contact</Link>
             </div>

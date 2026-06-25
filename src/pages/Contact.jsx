@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SEO from '../components/SEO';
 
 export default function Contact() {
   const [status, setStatus] = useState('');
@@ -11,6 +12,11 @@ export default function Contact() {
 
   return (
     <div className="static-page max-w-4xl mx-auto py-12 px-4">
+      <SEO
+        title="Contact LabelSnap Support"
+        description="Contact LabelSnap with questions, bug reports and feature requests for shipping-label and label-making tools."
+        canonicalPath="/contact"
+      />
       <h1 className="text-4xl font-bold mb-8 gradient-text text-center">Contact Us</h1>
       
       <div className="grid md:grid-cols-2 gap-8">

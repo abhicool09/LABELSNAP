@@ -1,8 +1,14 @@
 import React from 'react';
+import SEO from '../components/SEO';
 
 export default function About() {
   return (
     <div className="static-page max-w-4xl mx-auto py-12 px-4">
+      <SEO
+        title="About LabelSnap - Private Label Tools for Online Sellers"
+        description="Learn why LabelSnap builds free, privacy-first shipping label, barcode and QR tools for ecommerce sellers."
+        canonicalPath="/about"
+      />
       <h1 className="text-4xl font-bold mb-8 gradient-text text-center">About LabelSnap</h1>
       
       <div className="glass-card p-8 space-y-6">
