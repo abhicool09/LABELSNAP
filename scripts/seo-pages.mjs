@@ -136,7 +136,7 @@ const utilityPages = [
     intro:
       'A practical collection of browser-based generators for ecommerce, retail, packaging and warehouse work.',
     links: [
-      ['/ai-label-studio', 'LabelSnap Studio'],
+      ['/ai-label-studio', 'AI Label Cropper Studio'],
       ['/qr-code-generator', 'QR code generator'],
       ['/barcode-generator', 'Barcode generator'],
       ...Object.entries(makerPaths).map(([key, path]) => [path, LABEL_TEMPLATES[key].title]),
@@ -145,7 +145,7 @@ const utilityPages = [
   },
   {
     path: '/ai-label-studio',
-    title: 'LabelSnap Studio - Custom Label Designer and Bulk Printing',
+    title: 'AI Label Cropper Studio - Custom Label Designer and Bulk Printing',
     description:
       'Design custom labels on a precise canvas with text, logos, barcodes, QR codes, CSV variables and bulk A4 PDF printing.',
     heading: 'Custom label designer and bulk label studio',
@@ -172,7 +172,7 @@ const utilityPages = [
   },
   {
     path: '/blog',
-    title: 'Label Printing, QR Code and Barcode Guides - LabelSnap',
+    title: 'Label Printing, QR Code and Barcode Guides - AI Label Cropper',
     description:
       'Practical guides for cropping Amazon, Flipkart and Meesho labels, printing thermal labels, and creating QR codes and barcodes.',
     heading: 'Label printing guides for online sellers',
@@ -183,46 +183,46 @@ const utilityPages = [
   },
   {
     path: '/about',
-    title: 'About LabelSnap - Private Label Tools for Online Sellers',
+    title: 'About AI Label Cropper - Private Label Tools for Online Sellers',
     description:
-      'Learn why LabelSnap builds free, privacy-first shipping label, barcode and QR tools for ecommerce sellers.',
-    heading: 'About LabelSnap',
+      'Learn why AI Label Cropper builds free, privacy-first shipping label, barcode and QR tools for ecommerce sellers.',
+    heading: 'About AI Label Cropper',
     intro:
-      'LabelSnap helps ecommerce sellers prepare shipping and product labels faster while keeping order and customer files on their own device.',
+      'AI Label Cropper helps ecommerce sellers prepare shipping and product labels faster while keeping order and customer files on their own device.',
   },
   {
     path: '/contact',
-    title: 'Contact LabelSnap Support',
+    title: 'Contact AI Label Cropper Support',
     description:
-      'Contact LabelSnap with questions, bug reports and feature requests for shipping-label and label-making tools.',
-    heading: 'Contact LabelSnap',
+      'Contact AI Label Cropper with questions, bug reports and feature requests for shipping-label and label-making tools.',
+    heading: 'Contact AI Label Cropper',
     intro:
-      'Send questions, bug reports or feature requests to the LabelSnap team.',
+      'Send questions, bug reports or feature requests to the AI Label Cropper team.',
   },
   {
     path: '/privacy',
-    title: 'LabelSnap Privacy Policy',
+    title: 'AI Label Cropper Privacy Policy',
     description:
-      'Read how LabelSnap processes shipping-label PDFs locally in your browser and protects customer and order information.',
-    heading: 'LabelSnap privacy policy',
+      'Read how AI Label Cropper processes shipping-label PDFs locally in your browser and protects customer and order information.',
+    heading: 'AI Label Cropper privacy policy',
     intro:
-      'PDF cropping, rendering and label generation happen locally in your browser. Shipping files are not uploaded to LabelSnap servers.',
+      'PDF cropping, rendering and label generation happen locally in your browser. Shipping files are not uploaded to AI Label Cropper servers.',
   },
   {
     path: '/terms',
-    title: 'LabelSnap Terms of Service',
+    title: 'AI Label Cropper Terms of Service',
     description:
-      'Review the terms for using LabelSnap browser-based shipping-label, PDF, barcode and QR-code tools.',
-    heading: 'LabelSnap terms of service',
+      'Review the terms for using AI Label Cropper browser-based shipping-label, PDF, barcode and QR-code tools.',
+    heading: 'AI Label Cropper terms of service',
     intro:
-      'These terms describe use of LabelSnap and the responsibility to verify every label before printing and dispatch.',
+      'These terms describe use of AI Label Cropper and the responsibility to verify every label before printing and dispatch.',
   },
   {
     path: '/checkout/complete',
-    title: 'LabelSnap Order Status',
-    description: 'Check the status of a LabelSnap thermal-label order.',
+    title: 'AI Label Cropper Order Status',
+    description: 'Check the status of a AI Label Cropper thermal-label order.',
     heading: 'Order status',
-    intro: 'Review the status of your LabelSnap thermal-label order.',
+    intro: 'Review the status of your AI Label Cropper thermal-label order.',
     noindex: true,
   },
 ];

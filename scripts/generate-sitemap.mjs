@@ -42,11 +42,11 @@ await Promise.all([
     resolve(distDir, '404.html'),
     renderRouteHtml(baseHtml, {
       path: '/404',
-      title: 'Page Not Found - LabelSnap',
-      description: 'The requested LabelSnap page could not be found.',
+      title: 'Page Not Found - AI Label Cropper',
+      description: 'The requested AI Label Cropper page could not be found.',
       heading: 'Page not found',
-      intro: 'The page may have moved. Browse the free LabelSnap tools instead.',
-      links: [['/tools', 'Browse all LabelSnap tools']],
+      intro: 'The page may have moved. Browse the free AI Label Cropper tools instead.',
+      links: [['/tools', 'Browse all AI Label Cropper tools']],
       noindex: true,
     }),
     'utf8',
@@ -95,7 +95,7 @@ function renderRouteHtml(template, page) {
 
 function renderFallback(page) {
   const links = page.links?.length
-    ? `<nav aria-label="Related LabelSnap pages"><h2>Related tools and guides</h2><ul>${page.links
+    ? `<nav aria-label="Related AI Label Cropper pages"><h2>Related tools and guides</h2><ul>${page.links
         .map(
           ([href, label]) =>
             `<li><a href="${escapeHtml(href)}">${escapeHtml(label)}</a></li>`,
@@ -105,7 +105,7 @@ function renderFallback(page) {
   const articleBody = page.kind === 'article' && page.body ? page.body : '';
 
   return `<main data-seo-fallback style="max-width:900px;margin:48px auto;padding:24px;font-family:Inter,Arial,sans-serif;line-height:1.65;color:#172033">
-      <a href="/" style="font-weight:800;color:#0866e9;text-decoration:none">LabelSnap</a>
+      <a href="/" style="font-weight:800;color:#e11d48;text-decoration:none">AI Label Cropper</a>
       <article>
         <h1 style="font-size:clamp(2rem,5vw,3.4rem);line-height:1.1">${escapeHtml(page.heading)}</h1>
         <p style="font-size:1.15rem">${escapeHtml(page.intro)}</p>
@@ -127,7 +127,7 @@ function buildSchema(page, canonicalUrl) {
     inLanguage: 'en-IN',
     isPartOf: {
       '@type': 'WebSite',
-      name: 'LabelSnap',
+      name: 'AI Label Cropper',
       url: `${siteUrl}/`,
     },
   };
@@ -135,8 +135,8 @@ function buildSchema(page, canonicalUrl) {
   if (page.kind === 'article') {
     base.datePublished = page.datePublished;
     base.dateModified = page.datePublished;
-    base.author = { '@type': 'Organization', name: 'LabelSnap' };
-    base.publisher = { '@type': 'Organization', name: 'LabelSnap' };
+    base.author = { '@type': 'Organization', name: 'AI Label Cropper' };
+    base.publisher = { '@type': 'Organization', name: 'AI Label Cropper' };
   }
 
   if (
