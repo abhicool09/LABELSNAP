@@ -49,7 +49,7 @@ export default function Layout({ children }) {
     <>
       <nav className={`navbar${scrolled ? ' scrolled' : ''}`}>
         <div className="navbar__inner">
-          <Link to="/" className="navbar__logo" aria-label="LabelSnap home">
+          <Link to="/" className="navbar__logo" aria-label="AI Label Cropper home">
             <span className="navbar__logo-mark" aria-hidden="true">
               <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M3 9.5V6a3 3 0 0 1 3-3h3.5" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" />
@@ -58,7 +58,7 @@ export default function Layout({ children }) {
                 <path d="M17.5 11 L12.8 16.8 H15.8 L14.5 21 L19.2 15.2 H16.2 L17.5 11 Z" fill="#ffffff" />
               </svg>
             </span>
-            <span className="navbar__logo-text">LabelSnap</span>
+            <span className="navbar__logo-text">AI Label Cropper</span>
           </Link>
 
           <div className="navbar__links">
@@ -102,7 +102,7 @@ export default function Layout({ children }) {
                 <Link to="/ai-label-studio" className="navbar__dropdown-item" role="menuitem">
                   <span className="navbar__dropdown-emoji" aria-hidden="true">✎</span>
                   <span>
-                    <span className="navbar__dropdown-item-title">LabelSnap Studio</span>
+                    <span className="navbar__dropdown-item-title">AI Label Cropper Studio</span>
                     <span className="navbar__dropdown-item-sub">Bulk CSV & A4 label sheets</span>
                   </span>
                 </Link>
@@ -176,7 +176,7 @@ export default function Layout({ children }) {
         <Link to="/tools" className="navbar__mobile-link">All Label Tools</Link>
         <Link to="/qr-code-generator" className="navbar__mobile-link">QR Generator</Link>
         <Link to="/barcode-generator" className="navbar__mobile-link">Barcode Generator</Link>
-        <Link to="/ai-label-studio" className="navbar__mobile-link">LabelSnap Studio</Link>
+        <Link to="/ai-label-studio" className="navbar__mobile-link">AI Label Cropper Studio</Link>
 
         <div className="navbar__mobile-section">
           <div className="navbar__mobile-section-title">Flipkart</div>
@@ -240,7 +240,7 @@ export default function Layout({ children }) {
             </div>
           </div>
           <div className="footer__bottom">
-            (c) {new Date().getFullYear()} <span className="text-blue">LabelSnap</span>. All rights reserved. Free shipping label crop tool for Indian e-commerce sellers.
+            (c) {new Date().getFullYear()} <span className="text-blue">AI Label Cropper</span>. All rights reserved. Free shipping label crop tool for Indian e-commerce sellers.
           </div>
         </div>
       </footer>

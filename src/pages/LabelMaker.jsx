@@ -14,7 +14,7 @@ function initialValues(template) {
 export default function LabelMaker({ templateKey }) {
   const template = LABEL_TEMPLATES[templateKey];
   const [values, setValues] = useState(() => initialValues(template));
-  const [accent, setAccent] = useState('#0070f3');
+  const [accent, setAccent] = useState('#e11d48');
   const [barcodeUrl, setBarcodeUrl] = useState('');
   const [qrUrl, setQrUrl] = useState('');
   const [copies, setCopies] = useState(1);
@@ -79,7 +79,7 @@ export default function LabelMaker({ templateKey }) {
       if (qrUrl) pdf.addImage(qrUrl, 'PNG', width - 27, 8, 20, 20);
       if (barcodeUrl) pdf.addImage(barcodeUrl, 'PNG', 6, height - 15, Math.min(width - 12, 70), 10);
     }
-    pdf.save(`labelsnap-${templateKey}-labels.pdf`);
+    pdf.save(`ai-label-cropper-${templateKey}-labels.pdf`);
   };
 
   const path = canonicalPaths[templateKey];
@@ -120,7 +120,7 @@ export default function LabelMaker({ templateKey }) {
     [templateKey],
   );
 
-  const metaTitle = `${template.title} — Free & Print-ready | LabelSnap`;
+  const metaTitle = `${template.title} — Free & Print-ready | AI Label Cropper`;
 
   return (
     <div className="generator-page container py-12">

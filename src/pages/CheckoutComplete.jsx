@@ -54,7 +54,7 @@ export default function CheckoutComplete() {
 
   return (
     <div className="container py-16">
-      <SEO title="Order status" description="Check your LabelSnap thermal label order." canonicalPath="/checkout/complete" noindex />
+      <SEO title="Order status" description="Check your AI Label Cropper thermal label order." canonicalPath="/checkout/complete" noindex />
       <section className={`checkout-result checkout-result--${state.status}`}>
         <span className="checkout-result__icon">{state.status === 'success' ? '✓' : state.status === 'error' ? '!' : '…'}</span>
         <h1>{state.status === 'success' ? 'Order confirmed' : 'Checking your order'}</h1>
@@ -63,7 +63,7 @@ export default function CheckoutComplete() {
         {shipment?.shipmentId && <p>Shiprocket shipment ID: <strong>{shipment.shipmentId}</strong></p>}
         <div className="home-hero__actions">
           {(state.status === 'pending' || state.status === 'error') && <button className="btn-primary" type="button" onClick={() => window.location.reload()}>Check again</button>}
-          <Link className="btn-secondary" to="/">Back to LabelSnap</Link>
+          <Link className="btn-secondary" to="/">Back to AI Label Cropper</Link>
         </div>
       </section>
     </div>

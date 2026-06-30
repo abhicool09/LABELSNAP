@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-const DEFAULT_TITLE = 'LabelSnap - Free Shipping Label Crop Tool';
+const DEFAULT_TITLE = 'AI Label Cropper - Free Shipping Label Crop Tool';
 const DEFAULT_DESCRIPTION =
   'Free shipping label crop tool for Flipkart, Meesho, and Amazon sellers. Auto-crop labels for 4x6 thermal printers and A4 sheets.';
 

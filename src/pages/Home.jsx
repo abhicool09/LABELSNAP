@@ -10,20 +10,20 @@ const HOME_JSONLD = {
   '@graph': [
     {
       '@type': 'WebSite',
-      name: 'LabelSnap',
+      name: 'AI Label Cropper',
       url: 'https://labelsnap.vercel.app/',
       description:
         'Free shipping label crop tool for Flipkart, Meesho and Amazon sellers in India.',
     },
     {
       '@type': 'Organization',
-      name: 'LabelSnap',
+      name: 'AI Label Cropper',
       url: 'https://labelsnap.vercel.app/',
       logo: 'https://labelsnap.vercel.app/favicon.svg',
     },
     {
       '@type': 'WebApplication',
-      name: 'LabelSnap Shipping Label Cropper',
+      name: 'AI Label Cropper',
       applicationCategory: 'BusinessApplication',
       operatingSystem: 'Web browser',
       url: 'https://labelsnap.vercel.app/',
@@ -95,39 +95,91 @@ export default function Home() {
         jsonLd={HOME_JSONLD}
       />
 
-      <section className="home-hero text-center">
-        <span className="eyebrow">Free · Private · No sign-up</span>
-        <h1 className="home-hero__title">
-          Crop, print &amp; create shipping labels <span className="text-blue">in seconds</span>
-        </h1>
+      <section className="home-hero">
+        <h1 className="home-hero__title">Shipping labels, <em>cropped in your browser.</em></h1>
         <p className="home-hero__subtitle">
-          Auto-crop Flipkart, Meesho and Amazon labels — then generate QR codes, barcodes and 12 kinds
-          of print-ready labels. Everything runs in your browser, so your data never leaves your device.
+          Auto-crop Flipkart, Meesho and Amazon labels, then generate barcodes and QR codes —
+          without ever uploading your data.
         </p>
         <div className="home-hero__actions">
-          <a href="#tools" className="btn-primary">Browse all tools</a>
-          <Link to="/flipkart-label-cropper" className="btn-secondary">Crop a label now</Link>
+          <a href="#tools" className="btn-brand">Browse all tools</a>
+          <Link to="/flipkart-label-cropper" className="btn-primary">+ Crop a label now</Link>
         </div>
+        <p className="home-hero__tagline">Free · Private · No sign-up required</p>
       </section>
 
       <section id="tools" className="tool-directory">
-        <div className="section-head text-center">
-          <h2>All label tools</h2>
-          <p className="text-muted">Pick a tool and start instantly — no account, instant download.</p>
+        <div className="section-head">
+          <h2>The tool catalog.</h2>
+          <p className="text-muted">Everything you need to prep your shipping documents in seconds.</p>
         </div>
 
-        <h3 className="tool-group-title">Shipping label croppers</h3>
-        <div className="label-tools-grid">
-          {CROPPERS.map((tool) => (
-            <ToolTile key={tool.to} {...tool} />
-          ))}
+        <div className="bento">
+          <Link to="/meesho-label-cropper" className="bento__cell bento__cell--feature">
+            <div>
+              <span className="bento__eyebrow">Most used</span>
+              <h3 className="bento__title">Meesho smart cropper</h3>
+              <p className="bento__text">Supports all four variants — invoice, no-invoice, courier with invoice and courier no-invoice. Auto-detects layout and crops to 4×6.</p>
+            </div>
+            <div className="bento__preview" aria-hidden="true"><span>4 × 6</span></div>
+          </Link>
+
+          <Link to="/flipkart-label-cropper" className="bento__cell bento__cell--brand">
+            <h3 className="bento__title">Flipkart batch crop</h3>
+            <span className="bento__action"><span className="bento__action-label">Open tool</span><span className="bento__action-arrow" aria-hidden="true">→</span></span>
+          </Link>
+
+          <Link to="/qr-code-generator" className="bento__cell">
+            <h3 className="bento__title bento__title--sm">QR &amp; Barcode</h3>
+            <p className="bento__text">Generate high-res codes for inventory and labels.</p>
+          </Link>
+
+          <Link to="/merge" className="bento__cell">
+            <h3 className="bento__title bento__title--sm">Merge PDFs</h3>
+            <p className="bento__text">Combine multiple manifest files into one.</p>
+          </Link>
+
+          <Link to="/ai-label-studio" className="bento__cell bento__cell--dark">
+            <div>
+              <span className="bento__eyebrow bento__eyebrow--brand">AI Powered</span>
+              <h3 className="bento__title bento__title--sm">Label Studio</h3>
+            </div>
+            <p className="bento__text">Design custom labels with smart templates and presets.</p>
+          </Link>
+
+          <Link to="/amazon-label-cropper" className="bento__cell">
+            <h3 className="bento__title bento__title--sm">Amazon India</h3>
+            <p className="bento__text">4×6 thermal optimization for A4 sheets.</p>
+          </Link>
         </div>
 
-        <h3 className="tool-group-title">QR &amp; barcode generators</h3>
-        <div className="label-tools-grid">
-          {GENERATORS.map((tool) => (
-            <ToolTile key={tool.to} {...tool} />
-          ))}
+        <div className="catalog-lists">
+          <div>
+            <h3 className="tool-group-title">More croppers</h3>
+            <ul className="catalog-list">
+              {CROPPERS.slice(3).map((tool) => (
+                <li key={tool.to}>
+                  <Link to={tool.to} className="catalog-list__item">
+                    <span><strong>{tool.title}</strong><small>{tool.text}</small></span>
+                    <span className="catalog-list__arrow" aria-hidden="true">→</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3 className="tool-group-title">Generators</h3>
+            <ul className="catalog-list">
+              {GENERATORS.map((tool) => (
+                <li key={tool.to}>
+                  <Link to={tool.to} className="catalog-list__item">
+                    <span><strong>{tool.title}</strong><small>{tool.text}</small></span>
+                    <span className="catalog-list__arrow" aria-hidden="true">→</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         <h3 className="tool-group-title">Label makers</h3>
@@ -241,7 +293,7 @@ export default function Home() {
 
       <section className="features">
         <div className="section-head text-center">
-          <h2>Why sellers love <span className="text-blue">LabelSnap</span></h2>
+          <h2>Why sellers love <span className="text-blue">AI Label Cropper</span></h2>
         </div>
         <div className="feature-grid">
           {FEATURES.map((feature) => (
@@ -277,6 +329,18 @@ export default function Home() {
             <p className="text-muted">Perfectly cropped, print-ready labels.</p>
           </div>
         </div>
+      </section>
+
+      <section className="privacy-band">
+        <h2>Your data never leaves your computer.</h2>
+        <p>
+          Every label is processed directly in your browser. We never upload your shipping labels,
+          customer addresses or barcodes to any server.
+        </p>
+        <span className="privacy-band__pill">
+          <span className="privacy-band__dot" aria-hidden="true" />
+          Privacy-first by architecture
+        </span>
       </section>
     </div>
   );

@@ -34,7 +34,7 @@ const DEFAULT_CANVAS = {
 };
 
 const DEFAULT_PREVIEW_DATA = {
-  brand: 'LabelSnap',
+  brand: 'AI Label Cropper',
   product: 'Premium Thermal Labels',
   item: 'Shipping Label Roll',
   size: '4 × 6 inch',
@@ -496,9 +496,9 @@ export default function LabelStudio() {
   const downloadSample = () => {
     const sample = [
       CSV_HEADERS.join(','),
-      ['LabelSnap', 'Thermal Label Roll', 'Shipping labels', '4x6', 'White', '499', 'LS-4X6-100', '12 Market Road Pune', 'https://labelsnap.vercel.app'].map(escapeCsv).join(','),
+      ['AI Label Cropper', 'Thermal Label Roll', 'Shipping labels', '4x6', 'White', '499', 'LS-4X6-100', '12 Market Road Pune', 'https://labelsnap.vercel.app'].map(escapeCsv).join(','),
     ].join('\n');
-    downloadBlob(new Blob([sample], { type: 'text/csv;charset=utf-8' }), 'labelsnap-spooler-sample.csv');
+    downloadBlob(new Blob([sample], { type: 'text/csv;charset=utf-8' }), 'ai-label-cropper-spooler-sample.csv');
   };
 
   const drawLabel = async (pdf, offsetX, offsetY, data) => {
@@ -560,7 +560,7 @@ export default function LabelStudio() {
         const row = Math.floor(slot / columns);
         await drawLabel(pdf, sheetMargin + column * (design.canvas.width + gap), sheetMargin + row * (design.canvas.height + gap), rows[index]);
       }
-      pdf.save('labelsnap-studio-print-session.pdf');
+      pdf.save('ai-label-cropper-studio-print-session.pdf');
       setShowPrint(false);
     } catch (err) {
       setError(err.message || 'Could not generate the print session.');
@@ -571,12 +571,12 @@ export default function LabelStudio() {
 
   return (
     <div className="architect-page">
-      <SEO title="LabelSnap AI Studio — Custom Label Designer" description="Design custom labels on a precise millimetre canvas with text, logos, barcodes, QR codes, CSV variables and A4 bulk printing." canonicalPath="/ai-label-studio" />
+      <SEO title="AI Label Cropper AI Studio — Custom Label Designer" description="Design custom labels on a precise millimetre canvas with text, logos, barcodes, QR codes, CSV variables and A4 bulk printing." canonicalPath="/ai-label-studio" />
 
       <header className="architect-topbar">
         <div className="architect-brand">
           <span className="architect-brand__mark">✦</span>
-          <div><strong>LabelSnap Studio</strong><small>Precision Label Designer</small></div>
+          <div><strong>AI Label Cropper Studio</strong><small>Precision Label Designer</small></div>
         </div>
         <div className="architect-file-actions">
           <button type="button" onClick={() => setShowOpen(true)}>Open</button>

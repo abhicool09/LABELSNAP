@@ -233,7 +233,7 @@ export default function A4LabelPrint() {
                 {isGenerating ? 'Creating A4 PDF…' : `Create A4 PDF (${selectedLabels.length} labels)`}
               </button>
               {resultUrl && (
-                <a className="btn-success" href={resultUrl} download="labelsnap-labels-a4.pdf">
+                <a className="btn-success" href={resultUrl} download="ai-label-cropper-labels-a4.pdf">
                   Download A4 PDF
                 </a>
               )}
@@ -254,7 +254,7 @@ export default function A4LabelPrint() {
       <section className="seo-content mt-12">
         <h2>A4 shipping label printing for sellers</h2>
         <p>
-          Upload already-cropped label PDFs or image labels. Select only the pages you need, then LabelSnap
+          Upload already-cropped label PDFs or image labels. Select only the pages you need, then AI Label Cropper
           places them in upload order using a two-by-two A4 layout. Processing stays entirely in your browser.
         </p>
 

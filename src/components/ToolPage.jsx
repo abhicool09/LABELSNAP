@@ -37,7 +37,7 @@ export default function ToolPage({
       '@graph': [
         {
           '@type': 'SoftwareApplication',
-          name: metaTitle || `${title} | LabelSnap`,
+          name: metaTitle || `${title} | AI Label Cropper`,
           applicationCategory: 'BusinessApplication',
           operatingSystem: 'Web browser',
           url,
@@ -49,7 +49,7 @@ export default function ToolPage({
           name: `How to crop ${marketplaceName} shipping labels`,
           step: [
             { '@type': 'HowToStep', position: 1, name: 'Download the label PDF', text: `Download your ${marketplaceName} shipping label PDF from the seller dashboard.` },
-            { '@type': 'HowToStep', position: 2, name: 'Upload the PDF', text: 'Upload the PDF file to LabelSnap. Processing happens in your browser.' },
+            { '@type': 'HowToStep', position: 2, name: 'Upload the PDF', text: 'Upload the PDF file to AI Label Cropper. Processing happens in your browser.' },
             { '@type': 'HowToStep', position: 3, name: 'Choose a format', text: 'Select 4x6 thermal for label printers or A4 sheet for sticker paper.' },
             { '@type': 'HowToStep', position: 4, name: 'Download cropped labels', text: 'Download the cropped, print-ready PDF.' },
           ],
@@ -60,7 +60,7 @@ export default function ToolPage({
             {
               '@type': 'Question',
               name: `Is the ${marketplaceName} label cropper free?`,
-              acceptedAnswer: { '@type': 'Answer', text: `Yes. LabelSnap's ${marketplaceName} label cropper is completely free with no sign-up and no limits.` },
+              acceptedAnswer: { '@type': 'Answer', text: `Yes. AI Label Cropper's ${marketplaceName} label cropper is completely free with no sign-up and no limits.` },
             },
             {
               '@type': 'Question',
@@ -108,7 +108,7 @@ export default function ToolPage({
   return (
     <div className="tool-page">
       <SEO
-        title={metaTitle || `${title} | LabelSnap`}
+        title={metaTitle || `${title} | AI Label Cropper`}
         description={metaDescription || description}
         canonicalPath={canonicalPath || location.pathname}
         jsonLd={jsonLd}

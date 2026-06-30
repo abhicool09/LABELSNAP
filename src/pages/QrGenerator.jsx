@@ -16,7 +16,7 @@ const QR_STEPS = [
 ];
 
 const QR_FAQS = [
-  { q: 'Are these QR codes free and permanent?', a: 'Yes. LabelSnap generates static QR codes that never expire and have no scan limits or fees. The data is encoded directly in the code, so there is no redirect that can break.' },
+  { q: 'Are these QR codes free and permanent?', a: 'Yes. AI Label Cropper generates static QR codes that never expire and have no scan limits or fees. The data is encoded directly in the code, so there is no redirect that can break.' },
   { q: 'Can I create a UPI payment QR code?', a: 'Yes. Select the UPI type, enter your UPI ID and payee name, and the tool builds a standard upi:// QR that any UPI app like GPay, PhonePe or Paytm can scan to pay you.' },
   { q: 'Is my data uploaded anywhere?', a: 'No. The QR code is rendered entirely inside your browser using JavaScript. Nothing you type is sent to a server.' },
   { q: 'What resolution should I use for printing?', a: 'For printed labels and packaging, download the SVG (infinitely scalable) or use the 1024px PNG. Higher resolution keeps the code crisp and scannable at any size.' },
@@ -65,13 +65,13 @@ export default function QrGenerator() {
 
   const downloadSvg = async () => {
     const svg = await QRCode.toString(payload || ' ', { type: 'svg', width: size, margin: 2, color: { dark, light }, errorCorrectionLevel: 'H' });
-    downloadBlob(new Blob([svg], { type: 'image/svg+xml' }), 'labelsnap-qr.svg');
+    downloadBlob(new Blob([svg], { type: 'image/svg+xml' }), 'ai-label-cropper-qr.svg');
   };
 
   const downloadPdf = () => {
     const pdf = new jsPDF({ unit: 'mm', format: [100, 100] });
     pdf.addImage(dataUrl, 'PNG', 10, 10, 80, 80);
-    pdf.save('labelsnap-qr.pdf');
+    pdf.save('ai-label-cropper-qr.pdf');
   };
 
   return (
@@ -112,7 +112,7 @@ export default function QrGenerator() {
           <div className="qr-preview">{dataUrl && <img src={dataUrl} alt="Generated QR code preview" />}</div>
           <p className="preview-caption">{type} QR • {size}px</p>
           <div className="download-actions">
-            <a className="btn-primary" href={dataUrl} download="labelsnap-qr.png">Download PNG</a>
+            <a className="btn-primary" href={dataUrl} download="ai-label-cropper-qr.png">Download PNG</a>
             <button className="btn-secondary" type="button" onClick={downloadSvg}>SVG</button>
             <button className="btn-secondary" type="button" onClick={downloadPdf}>PDF</button>
           </div>

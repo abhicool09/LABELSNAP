@@ -18,7 +18,7 @@ export const LABEL_TEMPLATES = {
     description: 'Design retail and e-commerce product labels with price, SKU, barcode and QR.',
     size: [70, 42],
     fields: [
-      ['brand', 'Brand', 'LABELSNAP GOODS'],
+      ['brand', 'Brand', 'AI LABEL CROPPER'],
       ['product', 'Product name', 'Organic Cotton Tote'],
       ['sku', 'SKU', 'TOTE-NAT-01'],
       ['mrp', 'MRP', '₹799 incl. all taxes'],
@@ -31,7 +31,7 @@ export const LABEL_TEMPLATES = {
     description: 'Make compact retail price tags with brand, MRP and a scannable barcode.',
     size: [50, 30],
     fields: [
-      ['brand', 'Brand', 'LABELSNAP'],
+      ['brand', 'Brand', 'AI LABEL CROPPER'],
       ['product', 'Product', 'Classic Tee'],
       ['mrp', 'MRP', '₹999'],
       ['sale', 'Selling price', '₹699'],
@@ -55,7 +55,7 @@ export const LABEL_TEMPLATES = {
     description: 'Create return-address and customer mailing labels for sheets or thermal rolls.',
     size: [70, 35],
     fields: [
-      ['recipient', 'Name or business', 'LabelSnap Studio'],
+      ['recipient', 'Name or business', 'AI Label Cropper Studio'],
       ['address', 'Street address', '42 Market Street'],
       ['city', 'City, state & PIN', 'Pune, Maharashtra 411001'],
       ['phone', 'Phone / note', '+91 98765 43210'],
@@ -127,7 +127,7 @@ export const LABEL_TEMPLATES = {
     description: 'Design branded package stickers with a message and optional QR destination.',
     size: [50, 50],
     fields: [
-      ['brand', 'Brand', 'LABELSNAP'],
+      ['brand', 'Brand', 'AI LABEL CROPPER'],
       ['product', 'Headline', 'THANK YOU!'],
       ['message', 'Message', 'Your order made our day. We hope this makes yours.'],
       ['qr', 'QR destination', 'https://example.com/review'],

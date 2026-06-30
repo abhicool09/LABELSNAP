@@ -24,13 +24,13 @@ export default function ToolsHub() {
   return (
     <div className="container py-16">
       <SEO
-        title="Free Label, QR & Barcode Tools — LabelSnap Studio"
+        title="Free Label, QR & Barcode Tools — AI Label Cropper Studio"
         description="Create shipping labels, product labels, QR codes, barcodes, price tags and inventory labels free in your browser. No sign-up, no uploads."
         canonicalPath="/tools"
         jsonLd={TOOLS_JSONLD}
       />
       <header className="tool-header text-center label-tools-hero">
-        <span className="eyebrow">LabelSnap Studio</span>
+        <span className="eyebrow">AI Label Cropper Studio</span>
         <h1>Every label tool, one tidy workbench.</h1>
         <p className="subtitle">Original, browser-based generators for selling, packing, retail and warehouse work. No sign-up and no uploads.</p>
       </header>
@@ -38,7 +38,7 @@ export default function ToolsHub() {
         <Link className="label-tool-tile label-tool-tile--featured" to="/ai-label-studio">
           <span className="label-tool-icon" aria-hidden="true">✎</span>
           <span>
-            <strong>LabelSnap Studio</strong>
+            <strong>AI Label Cropper Studio</strong>
             <small>Bulk CSV, live A4 sheets, barcodes and QR codes.</small>
           </span>
           <span className="label-tool-arrow" aria-hidden="true">→</span>

@@ -6,8 +6,8 @@ export default function NotFound() {
   return (
     <div className="container py-16 text-center">
       <SEO
-        title="Page Not Found - LabelSnap"
-        description="The requested LabelSnap page could not be found."
+        title="Page Not Found - AI Label Cropper"
+        description="The requested AI Label Cropper page could not be found."
         canonicalPath="/404"
         noindex
       />

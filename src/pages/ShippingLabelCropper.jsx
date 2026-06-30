@@ -54,7 +54,7 @@ export default function ShippingLabelCropper() {
       <section className="seo-content">
         <h2>Free label cropper for ecommerce sellers</h2>
         <p>
-          LabelSnap helps sellers turn marketplace PDF labels into cleaner print files. Choose the marketplace,
+          AI Label Cropper helps sellers turn marketplace PDF labels into cleaner print files. Choose the marketplace,
           upload the downloaded PDF, select thermal or A4 output, and download the cropped file.
         </p>
 

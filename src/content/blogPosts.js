@@ -47,7 +47,7 @@ export const BLOG_POSTS = [
       <p>Have a stack of separate label PDFs? Combine them first with the <a href="/merge">Merge PDF</a> tool, then crop the merged file in one go. For other marketplaces, the same workflow applies — see the <a href="/blog/meesho-label-printing-guide">Meesho</a> and <a href="/blog/amazon-easy-ship-label-guide">Amazon</a> guides.</p>
     `,
     faqs: [
-      { q: 'Is the Flipkart label cropper free?', a: 'Yes. LabelSnap is completely free with no sign-up, no watermark and no limits on the number of labels you crop.' },
+      { q: 'Is the Flipkart label cropper free?', a: 'Yes. AI Label Cropper is completely free with no sign-up, no watermark and no limits on the number of labels you crop.' },
       { q: 'Does it remove the Flipkart tax invoice?', a: 'Yes. The cropper isolates just the shipping label area, leaving out the attached invoice and white space so you get a clean 4x6 label.' },
       { q: 'Are my labels uploaded to a server?', a: 'No. The PDF is processed entirely inside your browser, so your orders and customer data never leave your device.' },
       { q: 'Can I print Flipkart labels without a thermal printer?', a: 'Yes. Choose the A4 Sheet option to arrange four labels on a single A4 sticker sheet and print on any inkjet or laser printer.' },
@@ -171,7 +171,7 @@ export const BLOG_POSTS = [
       <p>QR codes are everywhere — on shop counters, packaging and posters. But many free generators create <em>dynamic</em> codes that route through their server and stop working when your free trial ends. This guide shows how to make <strong>static</strong> QR codes that encode the data directly, so they never expire.</p>
 
       <h2>Static vs dynamic QR codes</h2>
-      <p>A <strong>static</strong> QR code contains the actual data (a link, UPI ID or Wi-Fi password). It works forever and has no scan limits. A <strong>dynamic</strong> QR code stores a short redirect URL that points to the provider's server — handy for editing later, but it breaks if that service shuts down or you stop paying. For most sellers and shops, static is the safer choice. The <a href="/qr-code-generator">LabelSnap QR generator</a> creates static codes only.</p>
+      <p>A <strong>static</strong> QR code contains the actual data (a link, UPI ID or Wi-Fi password). It works forever and has no scan limits. A <strong>dynamic</strong> QR code stores a short redirect URL that points to the provider's server — handy for editing later, but it breaks if that service shuts down or you stop paying. For most sellers and shops, static is the safer choice. The <a href="/qr-code-generator">AI Label Cropper QR generator</a> creates static codes only.</p>
 
       <h2>The most useful QR types</h2>
       <ul>
@@ -198,7 +198,7 @@ export const BLOG_POSTS = [
       <p>Want the QR on a branded sticker? Add it to a <a href="/thank-you-sticker-maker">thank-you sticker</a> or <a href="/product-label-maker">product label</a> in a couple of clicks.</p>
     `,
     faqs: [
-      { q: 'Do these QR codes expire?', a: 'No. LabelSnap creates static QR codes that encode the data directly, so they never expire and have no scan limits.' },
+      { q: 'Do these QR codes expire?', a: 'No. AI Label Cropper creates static QR codes that encode the data directly, so they never expire and have no scan limits.' },
       { q: 'How do I make a UPI payment QR code?', a: 'Choose the UPI type, enter your UPI ID and payee name, and download the code. Any UPI app can scan it to pay you.' },
       { q: 'What format is best for printing a QR code?', a: 'Download the SVG for print — it scales to any size without blurring. A 1024px PNG also works well.' },
       { q: 'Is the QR generator really free and private?', a: 'Yes. It is free with no sign-up, and the code is generated entirely in your browser, so your data is never uploaded.' },

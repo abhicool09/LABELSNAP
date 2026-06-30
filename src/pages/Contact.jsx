@@ -13,8 +13,8 @@ export default function Contact() {
   return (
     <div className="static-page max-w-4xl mx-auto py-12 px-4">
       <SEO
-        title="Contact LabelSnap Support"
-        description="Contact LabelSnap with questions, bug reports and feature requests for shipping-label and label-making tools."
+        title="Contact AI Label Cropper Support"
+        description="Contact AI Label Cropper with questions, bug reports and feature requests for shipping-label and label-making tools."
         canonicalPath="/contact"
       />
       <h1 className="text-4xl font-bold mb-8 gradient-text text-center">Contact Us</h1>

@@ -45,7 +45,7 @@ const BARCODE_JSONLD = buildToolSchema({
 
 export default function BarcodeGenerator() {
   const [format, setFormat] = useState('CODE128');
-  const [value, setValue] = useState('LABELSNAP-1001');
+  const [value, setValue] = useState('AILABEL-1001');
   const [height, setHeight] = useState(100);
   const [showText, setShowText] = useState(true);
   const [error, setError] = useState('');
@@ -61,7 +61,7 @@ export default function BarcodeGenerator() {
   }, [format, value, height, showText]);
 
   const svgText = () => new XMLSerializer().serializeToString(svgRef.current);
-  const downloadSvg = () => downloadBlob(new Blob([svgText()], { type: 'image/svg+xml' }), 'labelsnap-barcode.svg');
+  const downloadSvg = () => downloadBlob(new Blob([svgText()], { type: 'image/svg+xml' }), 'ai-label-cropper-barcode.svg');
 
   return (
     <div className="generator-page container py-12">
@@ -88,7 +88,7 @@ export default function BarcodeGenerator() {
           <div className="barcode-preview"><svg ref={svgRef} aria-label="Generated barcode preview" /></div>
           {error ? <div className="alert error">{error}</div> : (
             <div className="download-actions">
-              <button className="btn-primary" type="button" onClick={() => svgToPng(svgText(), 1400, 500, 'labelsnap-barcode.png')}>Download PNG</button>
+              <button className="btn-primary" type="button" onClick={() => svgToPng(svgText(), 1400, 500, 'ai-label-cropper-barcode.png')}>Download PNG</button>
               <button className="btn-secondary" type="button" onClick={downloadSvg}>Download SVG</button>
             </div>
           )}

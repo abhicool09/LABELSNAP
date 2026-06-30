@@ -148,7 +148,7 @@ export default function ProductCheckout({ productId }) {
               <button className="btn-primary w-full" type="submit" disabled={paying}>
                 {paying ? 'Opening secure checkout…' : `Pay ${configured ? new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(product.price * quantity) : ''}`}
               </button>
-              <p className="checkout-note">Payment details are collected securely by Cashfree. LabelSnap never sees card or UPI credentials.</p>
+              <p className="checkout-note">Payment details are collected securely by Cashfree. AI Label Cropper never sees card or UPI credentials.</p>
             </form>
           </section>
         </div>

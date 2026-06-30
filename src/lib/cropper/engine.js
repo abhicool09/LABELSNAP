@@ -1,5 +1,5 @@
 /**
- * engine.js — Main entry point for the LabelSnap cropper.
+ * engine.js — Main entry point for the AI Label Cropper cropper.
  *
  * Orchestrates: PDF loading → per-page detection → rendering → cropping → output.
  * Runs entirely in the browser.

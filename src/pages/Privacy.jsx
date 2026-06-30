@@ -5,8 +5,8 @@ export default function Privacy() {
   return (
     <div className="static-page max-w-4xl mx-auto py-12 px-4">
       <SEO
-        title="LabelSnap Privacy Policy"
-        description="Read how LabelSnap processes shipping-label PDFs locally in your browser and protects customer and order information."
+        title="AI Label Cropper Privacy Policy"
+        description="Read how AI Label Cropper processes shipping-label PDFs locally in your browser and protects customer and order information."
         canonicalPath="/privacy"
       />
       <h1 className="text-4xl font-bold mb-8 gradient-text text-center">Privacy Policy</h1>
@@ -16,7 +16,7 @@ export default function Privacy() {
 
         <h3 className="text-xl font-bold text-white mt-6">1. Local Browser Processing</h3>
         <p>
-          At LabelSnap, privacy is our core feature. All PDF processing, cropping, and rendering happens <strong>entirely within your web browser</strong> using JavaScript. Your files, shipping labels, and customer data are never uploaded to our servers, stored, or transmitted anywhere.
+          At AI Label Cropper, privacy is our core feature. All PDF processing, cropping, and rendering happens <strong>entirely within your web browser</strong> using JavaScript. Your files, shipping labels, and customer data are never uploaded to our servers, stored, or transmitted anywhere.
         </p>
 
         <h3 className="text-xl font-bold text-white mt-6">2. Data We Do Not Collect</h3>

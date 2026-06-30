@@ -58,10 +58,10 @@ export function buildArticleSchema({ title, description, path, datePublished, fa
       url: siteUrl(path),
       datePublished,
       dateModified: datePublished,
-      author: { '@type': 'Organization', name: 'LabelSnap' },
+      author: { '@type': 'Organization', name: 'AI Label Cropper' },
       publisher: {
         '@type': 'Organization',
-        name: 'LabelSnap',
+        name: 'AI Label Cropper',
         logo: { '@type': 'ImageObject', url: siteUrl('/favicon.svg') },
       },
       image: siteUrl('/og-image.png'),

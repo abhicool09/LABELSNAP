@@ -7,13 +7,13 @@ export default function Blog() {
   return (
     <div className="container py-16">
       <SEO
-        title="LabelSnap Blog — Label Printing, QR & Barcode Guides"
+        title="AI Label Cropper Blog — Label Printing, QR & Barcode Guides"
         description="Practical guides for online sellers: crop and print Flipkart, Meesho and Amazon labels, make QR codes and barcodes, and create print-ready labels."
         canonicalPath="/blog"
       />
 
       <header className="tool-header text-center label-tools-hero">
-        <span className="eyebrow">LabelSnap blog</span>
+        <span className="eyebrow">AI Label Cropper blog</span>
         <h1>Guides for sellers who print labels</h1>
         <p className="subtitle">Clear, practical how-tos for cropping marketplace labels, generating QR codes and barcodes, and making print-ready labels.</p>
       </header>
